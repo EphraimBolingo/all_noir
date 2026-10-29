@@ -19,7 +19,7 @@ window.DUALITY_CONTENT = {
       projects: [
         {
           id: "allcod-adhesion",
-          title: "Plateforme d’adhésion",
+          title: "Adesco",
           description: "Plateforme d’adhésion consultable en ligne.",
           image: "assets/images/code-project.svg",
           imageIsDemo: true,
