@@ -7,7 +7,7 @@ Les contenus éditoriaux sont regroupés dans `src/data/content.js`. Modifiez ce
 | Élément | Fichier / clé | Format | Si le champ reste vide |
 |---|---|---|---|
 | Noms, alias, spécialités, biographies | `src/data/content.js` → `profiles.allcod` / `profiles.veufnoir` | Texte | Le texte initial est conservé |
-| Portraits | `profiles.<profil>.portrait` | Chemin vers une photo locale dans `assets/images/` | Un emplacement « Photo à ajouter » apparaît |
+| Portraits | `profiles.allcod.portrait` / `profiles.veufnoir.portrait` | Chemin vers une photo locale dans `assets/images/` | `ephraim.webp` et `pedro.webp` sont associés aux profils correspondants |
 | Compétences visibles et formations | `profiles.<profil>.tags` / `education` | Tableaux de textes | La liste correspondante peut être vide |
 | Compétences détaillées | `profiles.<profil>.skills` | Tableau de textes | Informations éditoriales non rendues comme pastilles |
 | Projets individuels | `profiles.<profil>.projects` | Tableau d'objets | Les trois emplacements All Cod et les deux VeufNoir sont des exemples à remplacer |

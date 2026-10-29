@@ -3,7 +3,7 @@ window.DUALITY_CONTENT = {
     allcod: {
       name: "Ephraim Wayanga Bolingo",
       alias: "All Cod",
-      portrait: "",
+      portrait: "assets/images/ephraim.webp",
       specialty: "Développement logiciel",
       biography: "Orienté vers le développement logiciel, la conception d’applications et de sites web, les bases de données et la création de solutions numériques utiles.",
       education: ["Bac+3 en génie logiciel"],
@@ -25,7 +25,7 @@ window.DUALITY_CONTENT = {
     veufnoir: {
       name: "Junior Pedro Zola",
       alias: "VeufNoir",
-      portrait: "",
+      portrait: "assets/images/pedro.webp",
       specialty: "Réseaux informatiques · Administration · Cybersécurité · Télécommunications",
       biography: "Orienté vers les réseaux informatiques, leur administration, les télécommunications et la sécurité des infrastructures.",
       education: ["Bac+3 en réseaux", "Formation CCNA 1, 2 et 3 suivie"],
