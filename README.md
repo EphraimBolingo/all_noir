@@ -1,0 +1,76 @@
+# DUALITY — All Cod × VeufNoir
+
+Portfolio statique en français conçu à partir des maquettes transmises : interface sombre, repères techniques, typographie condensée, cyan pour All Cod et orange pour VeufNoir. Le contenu distingue les deux profils et leurs travaux individuels des projets communs. Les projets, visuels, certificats et coordonnées encore absents restent explicitement des emplacements à compléter.
+
+## Technologies
+
+- HTML sémantique, CSS et JavaScript natifs
+- Illustrations SVG locales
+- Aucun paquet à installer, aucune compilation et aucun service externe requis
+- Le site peut être ouvert directement avec `index.html`. Un serveur local est conseillé pour tester les mêmes conditions qu'un hébergement web.
+
+## Lancer localement
+
+### Ouverture directe
+
+Extrayez le ZIP, puis ouvrez `index.html` depuis le dossier extrait dans un navigateur récent.
+
+### Serveur local (facultatif)
+
+Avec Python 3, depuis le dossier `duality-portfolio` :
+
+```powershell
+python -m http.server 8000
+```
+
+Ouvrez ensuite <http://localhost:8000>. Arrêtez le serveur avec `Ctrl+C`.
+
+Il n'y a pas de commande de construction ou de dépendance à installer.
+
+## Structure
+
+```text
+duality-portfolio/
+├── index.html
+├── README.md
+├── assets/
+│   ├── certificates/       # Documents authentiques à ajouter
+│   ├── icons/              # Marque SVG locale
+│   ├── images/             # Illustrations techniques locales
+│   └── videos/             # Vidéo d'ambiance facultative pour le hero
+├── docs/
+│   └── PERSONNALISATION.md
+└── src/
+    ├── css/styles.css      # Palette, mise en page, responsive, animations
+    ├── data/content.js     # Profils, compétences, projets, certificats, contacts
+    └── js/app.js           # Rendu des données et interactions accessibles
+```
+
+## Personnalisation
+
+Modifiez les informations regroupées dans `src/data/content.js`. Les biographies, portraits, compétences, tableaux de projets, coordonnées et la liste `certificates` y sont centralisés. Chaque fiche de profil dispose d'un emplacement photo configurable ; consultez le guide [`docs/PERSONNALISATION.md`](docs/PERSONNALISATION.md) et la [liste des contenus à remplacer](docs/CONTENUS-A-REMPLACER.md).
+
+Les listes de démonstration contiennent trois emplacements All Cod, deux VeufNoir et deux projets communs. Les filtres et le tri du portfolio s'appuient sur ces données. Remplacez les emplacements et leurs illustrations par des informations réelles avant publication. Les coordonnées laissées vides restent signalées comme à renseigner. La galerie des certificats est volontairement vide jusqu'à l'ajout de documents authentiques.
+
+## Limites et ressources externes
+
+- Aucun formulaire d'envoi n'est simulé : ajoutez de vraies coordonnées avant diffusion.
+- Les fichiers image ou PDF de certificat et leurs métadonnées doivent être ajoutés par l'utilisateur.
+- L'intégration d'un PDF dépend du navigateur ; un lien vers le fichier original est aussi proposé.
+- Les polices système sont utilisées, sans chargement distant.
+- Le hero présente le code et un schéma détaillé des équipements réseau dans deux panneaux alignés, sur le fond vidéo local `assets/videos/hero.mp4`. La vidéo est muette, en boucle et désactivée si la réduction des animations est demandée.
+- Les illustrations des projets sont des schémas abstraits locaux, marqués comme démonstrations, et non des captures de réalisations. La visualisation réseau est illustrative et ne réalise aucune analyse.
+- L'introduction animée est courte, peut être passée et respecte `prefers-reduced-motion`. La navigation et le contenu ne dépendent ni de WebGL ni d'une connexion réseau.
+
+## Vérifications effectuées
+
+- Ouverture de `index.html` et exécution du JavaScript dans le navigateur intégré.
+- Filtres vérifiés : 2 projets communs, 3 All Cod, 2 VeufNoir et 7 au total ; tri par titre également vérifié.
+- Le SVG d'architecture réseau s'affiche sans erreur ; le maillage abstrait du hero a été retiré.
+- Le paragraphe de présentation commune demandé a été retiré ; les deux fiches affichent un emplacement pour le portrait.
+- Le code et l'architecture restent côte à côte dans deux panneaux de même largeur, y compris sur mobile ; le code et le schéma réseau ont des formats adaptés aux panneaux étroits.
+- La disposition côte à côte a été contrôlée à 320, 360, 390, 520, 768 et 1 440 px. Le bouton pour passer l'introduction fonctionne et `prefers-reduced-motion` affiche un état stable.
+- Sur mobile, la hauteur du hero suit son contenu au lieu de réserver artificiellement la hauteur de l'écran ; un schéma réseau vertical dédié limite les marges vides dans le panneau étroit.
+- La vidéo locale `hero.mp4` se charge et lit dans le navigateur (1024 × 576, muette et en boucle) ; elle reste inactivée si la réduction des animations est demandée.
+
+Le contenu réel de certificats et de coordonnées n'étant pas fourni, les parcours image/PDF de la visionneuse n'ont pas été rejoués dans cette vérification. Le PDF intégré dépend du navigateur. Aucun audit automatisé d'accessibilité, de Web Vitals ou de performance n'a été exécuté.

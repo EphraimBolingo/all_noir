@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="360" viewBox="0 0 680 360" fill="none">
+  <rect width="680" height="360" fill="#0B0F12"/>
+  <path d="M0 60H680M0 120H680M0 180H680M0 240H680M0 300H680M68 0V360M136 0V360M204 0V360M272 0V360M340 0V360M408 0V360M476 0V360M544 0V360M612 0V360" stroke="#1D272D"/>
+  <path d="M119 177H251M429 177H561M340 103V146M340 208V254M251 177 297 177M383 177H429" stroke="#FF914D" stroke-opacity=".7" stroke-width="2"/>
+  <rect x="65" y="145" width="54" height="64" stroke="#627983"/>
+  <path d="M76 158H108M76 171H108M76 184H108M76 197H96" stroke="#8299A3" stroke-width="2"/>
+  <rect x="251" y="146" width="178" height="62" stroke="#FF914D"/>
+  <path d="M266 162H414M266 177H398M266 192H405" stroke="#FF914D" stroke-opacity=".55"/>
+  <rect x="561" y="145" width="54" height="64" stroke="#627983"/>
+  <path d="M572 158H604M572 171H604M572 184H604M572 197H592" stroke="#8299A3" stroke-width="2"/>
+  <circle cx="340" cy="103" r="12" stroke="#39D7EF"/>
+  <circle cx="340" cy="254" r="12" stroke="#39D7EF"/>
+  <path d="M328 103H352M340 91V115M328 254H352M340 242V266" stroke="#39D7EF" stroke-opacity=".65"/>
+  <text x="73" y="322" fill="#8EA2AB" font-family="monospace" font-size="11" letter-spacing="2">SCHÉMA ILLUSTRATIF · AUCUN RÉSEAU RÉEL</text>
+</svg>

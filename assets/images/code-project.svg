@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="360" viewBox="0 0 680 360" fill="none">
+  <rect width="680" height="360" fill="#091015"/>
+  <path d="M0 56H680M0 112H680M0 168H680M0 224H680M0 280H680M56 0V360M112 0V360M168 0V360M224 0V360M280 0V360M336 0V360M392 0V360M448 0V360M504 0V360M560 0V360M616 0V360" stroke="#1B2A31"/>
+  <rect x="74" y="48" width="532" height="238" stroke="#2B414B"/>
+  <path d="M74 81H606" stroke="#2B414B"/>
+  <circle cx="92" cy="65" r="4" fill="#39D7EF"/>
+  <circle cx="108" cy="65" r="4" fill="#4B6570"/>
+  <circle cx="124" cy="65" r="4" fill="#4B6570"/>
+  <path d="M110 122H218M110 151H327M110 180H264M110 209H375M110 238H235" stroke="#39D7EF" stroke-opacity=".7" stroke-width="3"/>
+  <path d="M412 123H554V235H412V123Z" stroke="#FF914D" stroke-opacity=".8"/>
+  <path d="M433 150H529M433 177H512M433 204H536" stroke="#FF914D" stroke-opacity=".55" stroke-width="3"/>
+  <path d="M327 180H390M375 209 412 192" stroke="#8CA5AE"/>
+  <text x="74" y="322" fill="#8EA2AB" font-family="monospace" font-size="11" letter-spacing="2">APERÇU ILLUSTRATIF · À REMPLACER PAR LE PROJET RÉEL</text>
+</svg>

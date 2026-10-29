@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="500" viewBox="0 0 920 500" fill="none">
+  <g stroke="#24333A">
+    <path d="M22 444H898M44 464H876"/>
+    <path d="M28 52H892"/>
+  </g>
+  <text x="30" y="38" fill="#778B94" font-family="monospace" font-size="13" letter-spacing="1.5">INFRASTRUCTURE · SCHÉMA ILLUSTRATIF</text>
+
+  <g stroke="#687C84" stroke-width="2">
+    <rect x="36" y="82" width="144" height="330"/>
+    <path d="M36 97H180M49 111H167"/>
+    <rect x="51" y="124" width="114" height="60"/>
+    <rect x="51" y="194" width="114" height="60"/>
+    <rect x="51" y="264" width="114" height="60"/>
+    <rect x="51" y="334" width="114" height="60"/>
+    <path d="M63 139H112M63 152H112M63 165H112M63 209H112M63 222H112M63 235H112M63 279H112M63 292H112M63 305H112M63 349H112M63 362H112M63 375H112" stroke="#82959D"/>
+    <path d="M121 135h32v39h-32zM121 205h32v39h-32zM121 275h32v39h-32zM121 345h32v39h-32z" stroke="#52666E"/>
+    <circle cx="158" cy="132" r="3" fill="#39D7EF" stroke="none"/>
+    <circle cx="158" cy="202" r="3" fill="#FF914D" stroke="none"/>
+    <circle cx="158" cy="272" r="3" fill="#39D7EF" stroke="none"/>
+    <circle cx="158" cy="342" r="3" fill="#39D7EF" stroke="none"/>
+    <path d="M43 117V400M173 117V400" stroke="#384C54"/>
+  </g>
+  <text x="50" y="434" fill="#A4B3B9" font-family="monospace" font-size="12" letter-spacing="1">BAIE SERVEURS</text>
+
+  <g stroke="#82959D" stroke-width="2">
+    <rect x="237" y="109" width="150" height="76"/>
+    <path d="M237 123H387M249 136H375M250 148H291M250 161H291"/>
+    <path d="M301 142h8v8h-8zM315 142h8v8h-8zM329 142h8v8h-8zM343 142h8v8h-8zM357 142h8v8h-8z" stroke="#B08365"/>
+    <circle cx="251" cy="174" r="3" fill="#FF914D" stroke="none"/>
+    <circle cx="262" cy="174" r="3" fill="#39D7EF" stroke="none"/>
+  </g>
+  <text x="239" y="98" fill="#D1A181" font-family="monospace" font-size="12" letter-spacing="1.2">PARE-FEU</text>
+
+  <g stroke="#82959D" stroke-width="2">
+    <rect x="440" y="109" width="171" height="76"/>
+    <path d="M440 123H611M452 136H599"/>
+    <path d="M455 145h8v12h-8zM469 145h8v12h-8zM483 145h8v12h-8zM497 145h8v12h-8zM511 145h8v12h-8zM525 145h8v12h-8zM539 145h8v12h-8zM553 145h8v12h-8zM567 145h8v12h-8zM581 145h8v12h-8z"/>
+    <path d="M452 170h10m9 0h10" stroke="#39D7EF"/>
+  </g>
+  <text x="442" y="98" fill="#A4B3B9" font-family="monospace" font-size="12" letter-spacing="1.1">ROUTEUR</text>
+
+  <g stroke="#82959D" stroke-width="2">
+    <rect x="665" y="109" width="219" height="76"/>
+    <path d="M665 123H884M677 136H872"/>
+    <path d="M680 145h8v12h-8zM694 145h8v12h-8zM708 145h8v12h-8zM722 145h8v12h-8zM736 145h8v12h-8zM750 145h8v12h-8zM764 145h8v12h-8zM778 145h8v12h-8zM792 145h8v12h-8zM806 145h8v12h-8zM820 145h8v12h-8zM834 145h8v12h-8zM848 145h8v12h-8zM862 145h8v12h-8z"/>
+    <path d="M678 170h10m9 0h10" stroke="#39D7EF"/>
+  </g>
+  <text x="667" y="98" fill="#A4B3B9" font-family="monospace" font-size="12" letter-spacing="1.1">COMMUTATEUR CŒUR · 24 PORTS</text>
+
+  <path d="M180 154H237M387 147H440M611 147H665" stroke="#FF914D" stroke-opacity=".85" stroke-width="2"/>
+  <circle cx="208" cy="154" r="3" fill="#FF914D"/>
+  <circle cx="413" cy="147" r="3" fill="#FF914D"/>
+  <circle cx="638" cy="147" r="3" fill="#39D7EF"/>
+
+  <path d="M752 185V231H544V264M544 231H339V264" stroke="#39D7EF" stroke-opacity=".78" stroke-width="2"/>
+  <circle cx="544" cy="231" r="3" fill="#39D7EF"/>
+  <g stroke="#687C84" stroke-width="2">
+    <rect x="344" y="264" width="398" height="72"/>
+    <path d="M344 278H742M357 291H729"/>
+    <path d="M362 299h9v15h-9zM378 299h9v15h-9zM394 299h9v15h-9zM410 299h9v15h-9zM426 299h9v15h-9zM442 299h9v15h-9zM458 299h9v15h-9zM474 299h9v15h-9zM490 299h9v15h-9zM506 299h9v15h-9zM522 299h9v15h-9zM538 299h9v15h-9zM554 299h9v15h-9zM570 299h9v15h-9zM586 299h9v15h-9zM602 299h9v15h-9zM618 299h9v15h-9zM634 299h9v15h-9zM650 299h9v15h-9zM666 299h9v15h-9zM682 299h9v15h-9zM698 299h9v15h-9zM714 299h9v15h-9z"/>
+    <path d="M358 325h10m9 0h10" stroke="#39D7EF"/>
+  </g>
+  <text x="348" y="253" fill="#A4B3B9" font-family="monospace" font-size="12" letter-spacing="1.1">COMMUTATEUR D’ACCÈS</text>
+
+  <path d="M543 336V365M543 365H399V382M543 365H688V382" stroke="#718890" stroke-width="2"/>
+  <g stroke="#687C84" stroke-width="2">
+    <rect x="356" y="382" width="88" height="48"/>
+    <path d="M368 396H432M368 407H432M368 418H404" stroke="#82959D"/>
+    <circle cx="374" cy="423" r="2.5" fill="#39D7EF" stroke="none"/>
+    <rect x="644" y="382" width="88" height="48"/>
+    <path d="M656 396H720M656 407H720M656 418H692" stroke="#82959D"/>
+    <circle cx="662" cy="423" r="2.5" fill="#39D7EF" stroke="none"/>
+  </g>
+  <text x="361" y="444" fill="#778B94" font-family="monospace" font-size="11">POSTE</text>
+  <text x="649" y="444" fill="#778B94" font-family="monospace" font-size="11">SERVEUR</text>
+</svg>

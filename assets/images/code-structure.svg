@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="360" viewBox="0 0 680 360" fill="none">
+  <rect width="680" height="360" fill="#0A1015"/>
+  <path d="M0 72H680M0 144H680M0 216H680M0 288H680M68 0V360M136 0V360M204 0V360M272 0V360M340 0V360M408 0V360M476 0V360M544 0V360M612 0V360" stroke="#1D2A31" stroke-width="1"/>
+  <path d="M102 91H268L310 132V237H102V91Z" stroke="#8FEAFF" stroke-opacity=".62"/>
+  <path d="M310 132H422L462 172V267H310" stroke="#8FEAFF" stroke-opacity=".3"/>
+  <path d="M139 126H246M139 153H221M139 180H264M139 207H205" stroke="#8FEAFF" stroke-opacity=".52" stroke-width="3"/>
+  <path d="M422 172V225H520" stroke="#8995A1" stroke-opacity=".45"/>
+  <circle cx="520" cy="225" r="5" fill="#8FEAFF"/>
+  <path d="M520 225V275H584" stroke="#8995A1" stroke-opacity=".45"/>
+  <circle cx="584" cy="275" r="4" fill="#8FEAFF" fill-opacity=".72"/>
+  <path d="M58 319H622" stroke="#2B3941"/>
+  <text x="58" y="341" fill="#8995A1" font-family="monospace" font-size="10" letter-spacing="2">STRUCTURE ABSTRAITE / APERÇU DE DÉMONSTRATION</text>
+</svg>

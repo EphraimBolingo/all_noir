@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="360" viewBox="0 0 680 360" fill="none">
+  <rect width="680" height="360" fill="#0B0F12"/>
+  <path d="M0 72H680M0 144H680M0 216H680M0 288H680M68 0V360M136 0V360M204 0V360M272 0V360M340 0V360M408 0V360M476 0V360M544 0V360M612 0V360" stroke="#1D272D"/>
+  <path d="M94 111H247V235H94V111Z" stroke="#8FEAFF" stroke-opacity=".65"/>
+  <path d="M118 140H220M118 165H202M118 190H227" stroke="#8FEAFF" stroke-opacity=".55" stroke-width="3"/>
+  <path d="M433 100 527 157 433 218 339 157 433 100Z" stroke="#FFB56B" stroke-opacity=".65"/>
+  <circle cx="339" cy="157" r="5" fill="#FFB56B"/>
+  <circle cx="433" cy="100" r="5" fill="#FFB56B"/>
+  <circle cx="527" cy="157" r="5" fill="#FFB56B"/>
+  <circle cx="433" cy="218" r="5" fill="#FFB56B"/>
+  <path d="M247 173H339M310 173 340 157" stroke="#8995A1" stroke-width="1.5"/>
+  <circle cx="310" cy="173" r="4" fill="#8FEAFF"/>
+  <path d="M61 272H619" stroke="#2B3941"/>
+  <text x="61" y="305" fill="#8995A1" font-family="monospace" font-size="10" letter-spacing="2">CODE ↔ RÉSEAU / ILLUSTRATION DE DÉMONSTRATION</text>
+</svg>
