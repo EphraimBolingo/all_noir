@@ -121,14 +121,12 @@
     const facts = createElement("div", "project-facts");
     const factEntries = isShared
       ? [
-            ["RÔLE · ALL COD", project.roles && project.roles.allcod || ""],
-            ["RÔLE · VEUFNOIR", project.roles && project.roles.veufnoir || ""],
-            ["DATE", project.updated || ""]
+          ["RÔLE · ALL COD", project.roles && project.roles.allcod || ""],
+          ["RÔLE · VEUFNOIR", project.roles && project.roles.veufnoir || ""]
         ]
       : [
           ["AUTEUR", category === "allcod" ? content.profiles.allcod.alias : content.profiles.veufnoir.alias],
-            ["CONTRIBUTION", project.role || ""],
-            ["DATE", project.updated || ""]
+          ["CONTRIBUTION", project.role || ""]
         ];
     factEntries.forEach(function (entry) {
       if (!entry[1]) return;

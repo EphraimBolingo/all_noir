@@ -45,16 +45,15 @@ Chaque objet de projet accepte les champs suivants :
   category: "allcod",
   status: "En ligne",
   role: "Contribution confirmée",
-  updated: "",
   technologies: ["HTML", "CSS"],
   demoUrl: "https://exemple.page.gd/",
   sourceUrl: ""
 }
 ```
 
-Pour les projets individuels, `category` vaut `allcod` ou `veufnoir` selon le tableau. Pour les projets communs, conservez `category: "collaborations"` et renseignez les rôles dans `roles.allcod` et `roles.veufnoir`. `role` et `updated` complètent les informations individuelles ; ne renseignez que des informations confirmées.
+Pour les projets individuels, `category` vaut `allcod` ou `veufnoir` selon le tableau. Pour les projets communs, conservez `category: "collaborations"` et renseignez les rôles dans `roles.allcod` et `roles.veufnoir`. `role` complète les informations individuelles ; ne renseignez que des informations confirmées.
 
-Retirez les champs inconnus ou laissez-les vides. `isDemo` indique un emplacement de projet fictif ; `imageIsDemo` permet de signaler séparément une illustration de remplacement pour un projet réel. `status` est facultatif. Les technologies, contributions facultatives, dates et liens non renseignés ne sont pas affichés. Les URL de site et de code source ne s'affichent que lorsqu'elles sont renseignées ; les URL externes doivent être en HTTPS.
+Retirez les champs inconnus ou laissez-les vides. `isDemo` indique un emplacement de projet fictif ; `imageIsDemo` permet de signaler séparément une illustration de remplacement pour un projet réel. `status` est facultatif. Les technologies, contributions facultatives et liens non renseignés ne sont pas affichés. Aucune date n'est affichée sur les cartes de projet. Les URL de site et de code source ne s'affichent que lorsqu'elles sont renseignées ; les URL externes doivent être en HTTPS.
 
 Le portfolio comprend actuellement trois projets All Cod, deux projets VeufNoir et un projet commun Net-Rapide. Pour présenter plusieurs livrables sous un seul projet commun, renseignez `deliverables` :
 
