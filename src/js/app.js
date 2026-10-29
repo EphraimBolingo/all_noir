@@ -756,7 +756,6 @@
     }, { once: true });
     video.preload = "auto";
     video.src = source;
-    video.load();
   }
 
   function initializeActiveNavigation() {
