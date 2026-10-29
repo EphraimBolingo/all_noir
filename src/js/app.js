@@ -388,6 +388,29 @@
       count.textContent = String(activeIndex + 1).padStart(2, "0") + " / " + String(images.length).padStart(2, "0");
     }
 
+    const galleryImagePreloads = [];
+
+    function preloadGalleryImages() {
+      const connection = navigator.connection;
+      if (connection && (connection.saveData || connection.effectiveType === "2g" || connection.effectiveType === "slow-2g")) return;
+      images.forEach(function (item, index) {
+        if (index === activeIndex) return;
+        const preloadedImage = new Image();
+        preloadedImage.decoding = "async";
+        if ("fetchPriority" in preloadedImage) preloadedImage.fetchPriority = "low";
+        galleryImagePreloads.push(preloadedImage);
+        preloadedImage.src = versionedAssetUrl(item.src);
+      });
+    }
+
+    function scheduleGalleryPreload() {
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(preloadGalleryImages, { timeout: 1200 });
+      } else {
+        window.setTimeout(preloadGalleryImages, 200);
+      }
+    }
+
     previous.addEventListener("click", function () {
       showImage(activeIndex - 1);
     });
@@ -411,6 +434,16 @@
       ) return;
       showImage(activeIndex + 1);
     }, 2000);
+    if ("IntersectionObserver" in window) {
+      const galleryObserver = new IntersectionObserver(function (entries) {
+        if (!entries.some(function (entry) { return entry.isIntersecting; })) return;
+        galleryObserver.disconnect();
+        scheduleGalleryPreload();
+      }, { rootMargin: "200px 0px" });
+      galleryObserver.observe(visual);
+    } else {
+      scheduleGalleryPreload();
+    }
     showImage(activeIndex);
     controls.append(previous, count, next);
     visual.appendChild(controls);
@@ -835,13 +868,66 @@
       return;
     }
 
-    if (video.error) {
-      console.error("Impossible de charger la vidéo du hero : " + source);
-    } else {
-      video.addEventListener("error", function () {
-        console.error("Impossible de charger la vidéo du hero : " + source);
-      }, { once: true });
+    let networkRetryCount = 0;
+    let networkRetryTimer = 0;
+
+    function retryFailedVideo() {
+      if (
+        reducedMotion.matches
+        || documentRef.hidden
+        || !navigator.onLine
+        || !video.error
+        || video.error.code !== 2
+        || networkRetryCount >= 2
+      ) return;
+      window.clearTimeout(networkRetryTimer);
+      networkRetryCount += 1;
+      networkRetryTimer = window.setTimeout(function () {
+        if (documentRef.hidden || !navigator.onLine || !video.error || video.error.code !== 2) return;
+        const retryUrl = new URL(versionedAssetUrl(source), documentRef.baseURI);
+        retryUrl.searchParams.set("retry", String(networkRetryCount));
+        video.src = retryUrl.href;
+      }, networkRetryCount * 700);
     }
+
+    function handleVideoError() {
+      console.error("Impossible de charger la vidéo du hero : " + source);
+      retryFailedVideo();
+    }
+    video.addEventListener("error", handleVideoError);
+
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+
+    function resumePlayback() {
+      if (reducedMotion.matches || documentRef.hidden || !video.paused || video.error) return;
+      const playback = video.play();
+      if (playback && typeof playback.catch === "function") {
+        playback.catch(function (error) {
+          if (error.name !== "NotAllowedError" && error.name !== "AbortError") {
+            console.error("Impossible de démarrer la vidéo du hero : " + error.message);
+          }
+        });
+      }
+    }
+
+    video.addEventListener("loadeddata", resumePlayback, { once: true });
+    video.addEventListener("canplay", resumePlayback);
+    documentRef.addEventListener("visibilitychange", resumePlayback);
+    window.addEventListener("pageshow", function () {
+      retryFailedVideo();
+      resumePlayback();
+    });
+    window.addEventListener("online", function () {
+      retryFailedVideo();
+      resumePlayback();
+    });
+    video.addEventListener("pause", function () {
+      window.setTimeout(resumePlayback, 250);
+    });
+    if (video.error) handleVideoError();
+    resumePlayback();
   }
 
   function initializeActiveNavigation() {
