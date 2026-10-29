@@ -16,7 +16,6 @@ Les contenus éditoriaux sont regroupés dans `src/data/content.js`. Modifiez ce
 | Numéro partagé | `contact.sharedPhone` | Numéro international, sans espaces recommandés | « À renseigner » est affiché |
 | E-mail et profils | `contact.allcod` / `contact.veufnoir` | E-mail ou URL HTTPS complète | Le contact vide n'est pas transformé en lien |
 | Certificats et attestations | `certificates` | Tableau d'objets (voir ci-dessous) | Le carrousel est filtrable par organisme de formation |
-| Parcours sans certificat | `trainingTracks` | Tableau d'objets distinct des documents | Le parcours CCNA suivi par VeufNoir est affiché sans le présenter comme une certification |
 | Couleurs et animations | `src/css/styles.css` → variables `:root` et règles `@keyframes` | CSS | La palette actuelle est conservée |
 | Images d'illustration | `assets/images/` | SVG, PNG, JPG ou WebP | Utilisez les chemins d'image de démonstration existants |
 
@@ -28,7 +27,7 @@ Dans `src/data/content.js`, mettez à jour les champs du profil correspondant. L
 skills: ["Réseaux informatiques", "Administration réseau"]
 ```
 
-Les outils d’All Cod sont affichés sous forme de petits SVG définis par `tools`, avec leurs noms disponibles pour les lecteurs d’écran et au survol. `skills` conserve une liste détaillée pour référence. VeufNoir conserve ses pastilles textuelles `tags`. Conservez la formulation exacte des qualifications documentées. Par exemple, « Formation CCNA 1, 2 et 3 suivie » ne signifie pas qu'une certification CCNA a été obtenue. Les établissements, dates et distinctions restent absents tant qu'ils ne sont pas vérifiés.
+Les outils d’All Cod sont affichés sous forme de petits SVG définis par `tools`, avec leurs noms disponibles pour les lecteurs d’écran et au survol. `skills` conserve une liste détaillée pour référence. VeufNoir conserve ses pastilles textuelles `tags`. Conservez la formulation exacte des qualifications documentées et n’ajoutez des dates ou distinctions que si elles ont été vérifiées.
 
 Les portraits actuels se trouvent dans `assets/images/ephraim.webp` et `assets/images/pedro.webp`. Pour remplacer une photo, mettez à jour le fichier ou le champ `portrait` du profil correspondant. Les formats JPG, PNG, WebP et AVIF sont acceptés ; si une image configurée est absente, la fiche affiche un emplacement de remplacement.
 
@@ -101,7 +100,7 @@ certificates: [
 
 Valeurs reconnues pour `person` : `allcod` ou `veufnoir`. `kind` décrit le document réel (diplôme, attestation ou certificat). `date`, `description` et `verificationUrl` sont facultatifs. N'ajoutez un lien de vérification que s'il mène à une page authentique en HTTPS. Ne créez pas de faux certificat, de numéro ou de date.
 
-Valeurs de `category` utilisées par les filtres : `coursera` et `ccna`. Les certificats Coursera de Pedro peuvent être ajoutés ici avec `person: "veufnoir"` et `category: "coursera"`. Un parcours suivi sans document justificatif doit être ajouté dans `trainingTracks`, jamais dans `certificates` ; il apparaît dans le carrousel sans bouton de consultation de certificat.
+Valeurs de `category` utilisées par les filtres : `coursera` et `ccna`. Les certificats Coursera de Pedro peuvent être ajoutés ici avec `person: "veufnoir"` et `category: "coursera"`. CCNA 1, CCNA 2 et CCNA 3 sont trois documents distincts : créez un objet par certificat et associez à chacun son propre `preview` et son propre `file` dès que les images sont disponibles.
 
 Pour une image seule, indiquez `file` avec le chemin de l'image et le type d'image correspondant, ou laissez `fileType` vide : le fichier image sera détecté par son extension. `preview` est facultatif ; si absent, la vignette présente un emplacement sans fabriquer d'aperçu. Le fichier original peut être ouvert séparément depuis la visionneuse. Si un PDF ne s'affiche pas intégré dans un navigateur, le lien du fichier original reste disponible.
 

@@ -72,11 +72,11 @@ window.DUALITY_CONTENT = {
       portrait: "assets/images/pedro.webp",
       specialty: "Réseaux informatiques · Administration · Cybersécurité · Télécommunications",
       biography: "Orienté vers les réseaux informatiques, leur administration, les télécommunications et la sécurité des infrastructures.",
-      education: ["Bac+3 en réseaux", "Formation CCNA 1, 2 et 3 suivie"],
-      tags: ["Réseaux", "Cybersécurité", "Infrastructure", "Télécommunications", "Administration réseau", "Formation CCNA suivie"],
+      education: ["Bac+3 en réseaux", "Certifications CCNA 1, 2 et 3 obtenues"],
+      tags: ["Réseaux", "Cybersécurité", "Infrastructure", "Télécommunications", "Administration réseau", "Certifications CCNA 1, 2 et 3"],
       skills: [
         "Réseaux informatiques", "Administration réseau", "Cybersécurité",
-        "Télécommunications", "Formation CCNA 1, 2 et 3 suivie"
+        "Télécommunications", "Certifications CCNA 1, 2 et 3 obtenues"
       ],
       projects: [
         {
@@ -179,16 +179,33 @@ window.DUALITY_CONTENT = {
       description: "Cours en ligne sans crédit autorisé par IBM et proposé par Coursera.",
       preview: "assets/certificates/vrevet_ephra4.webp",
       file: "assets/certificates/vrevet_ephra4.webp"
-    }
-  ],
-  trainingTracks: [
+    },
     {
-      id: "veufnoir-ccna-training",
-      title: "Formation CCNA 1, 2 et 3 suivie",
+      id: "veufnoir-ccna-1",
+      title: "CCNA 1",
+      issuer: "",
       person: "veufnoir",
+      kind: "Certificat CCNA",
       category: "ccna",
-      kind: "Parcours de formation",
-      description: "Formation suivie par VeufNoir. Aucun certificat CCNA n’est revendiqué ni affiché."
+      description: "Certificat obtenu par Pedro. Son image sera ajoutée dès qu’elle sera disponible."
+    },
+    {
+      id: "veufnoir-ccna-2",
+      title: "CCNA 2",
+      issuer: "",
+      person: "veufnoir",
+      kind: "Certificat CCNA",
+      category: "ccna",
+      description: "Certificat obtenu par Pedro. Son image sera ajoutée dès qu’elle sera disponible."
+    },
+    {
+      id: "veufnoir-ccna-3",
+      title: "CCNA 3",
+      issuer: "",
+      person: "veufnoir",
+      kind: "Certificat CCNA",
+      category: "ccna",
+      description: "Certificat obtenu par Pedro. Son image sera ajoutée dès qu’elle sera disponible."
     }
   ],
   contact: {

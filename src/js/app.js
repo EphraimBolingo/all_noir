@@ -470,7 +470,7 @@
     const veufnoirEducation = veufnoir.education.filter(Boolean);
     const ccnaTraining = veufnoirEducation.find(function (item) { return item.indexOf("CCNA") !== -1; });
     const remainingEducation = veufnoirEducation.filter(function (item) { return item !== ccnaTraining; });
-    setText('[data-person="veufnoir-training"]', "Parcours communiqué : " + (remainingEducation.join(" ; ") || "à renseigner") + (ccnaTraining ? " ; " + ccnaTraining : "") + ". Aucune certification CCNA n’est revendiquée ici.");
+    setText('[data-person="veufnoir-training"]', "Parcours communiqué : " + (remainingEducation.join(" ; ") || "à renseigner") + (ccnaTraining ? " ; " + ccnaTraining : "") + ". Les certificats CCNA 1, 2 et 3 sont présentés séparément.");
     setText('[data-education="allcod"]', allcod.education.join(" · "));
     setText('[data-education="veufnoir"]', veufnoir.education.join(" · "));
     setText('[data-education="allcod-degree"]', allcod.education[0] || "");
@@ -529,17 +529,14 @@
 
   function renderCertificates() {
     const documents = Array.isArray(content.certificates) ? content.certificates : [];
-    const trainingTracks = Array.isArray(content.trainingTracks) ? content.trainingTracks : [];
     const gallery = documentRef.getElementById("credential-gallery");
     const tools = documentRef.getElementById("credential-tools");
     const filters = documentRef.getElementById("credential-filters");
     if (!gallery || !tools || !filters) return;
 
     const carouselItems = documents.map(function (document, index) {
-      return { type: "document", data: document, index: index };
-    }).concat(trainingTracks.map(function (track) {
-      return { type: "training", data: track };
-    }));
+      return { data: document, index: index };
+    });
 
     if (!carouselItems.length) {
       gallery.classList.remove("has-documents");
@@ -608,7 +605,8 @@
       const document = item.data;
       const button = createElement("button", "credential-card");
       button.type = "button";
-      button.setAttribute("aria-label", "Consulter : " + (document.title || "Document sans titre renseigné"));
+      const hasPreview = Boolean(normalizeDocumentPath(document.preview));
+      button.setAttribute("aria-label", (hasPreview ? "Consulter : " : "Image à ajouter pour : ") + (document.title || "Document sans titre renseigné"));
       const preview = createElement("span", "credential-preview");
       const previewPath = normalizeDocumentPath(document.preview);
       if (previewPath) {
@@ -620,34 +618,19 @@
         image.height = 360;
         preview.appendChild(image);
       } else {
-        preview.appendChild(createElement("span", "credential-placeholder-mark mono", "DOCUMENT"));
-        preview.appendChild(createElement("span", "credential-placeholder-copy", "Aperçu à ajouter"));
+        preview.appendChild(createElement("span", "credential-placeholder-mark mono", document.category === "ccna" ? document.title : "DOCUMENT"));
+        preview.appendChild(createElement("span", "credential-placeholder-copy", document.category === "ccna" ? "Image du certificat à ajouter" : "Aperçu à ajouter"));
       }
-      preview.appendChild(createElement("span", "credential-open mono", "CONSULTER ↗"));
+      preview.appendChild(createElement("span", "credential-open mono", hasPreview ? "CONSULTER ↗" : "FICHIER À AJOUTER"));
       const detail = createElement("span", "credential-card-detail");
       detail.appendChild(createElement("span", "mono credential-category", document.kind || "Type de document à préciser"));
       detail.appendChild(createElement("strong", "", document.title || "Titre à renseigner"));
-      detail.appendChild(createElement("span", "", document.issuer || "Organisme à renseigner"));
+      if (document.issuer) detail.appendChild(createElement("span", "", document.issuer));
       if (document.date) detail.appendChild(createElement("time", "", document.date));
       if (document.description) detail.appendChild(createElement("span", "credential-description", document.description));
       button.append(preview, detail);
       button.addEventListener("click", function () { openDocument(document, item.index); });
       return button;
-    }
-
-    function createTrainingCard(item) {
-      const trackData = item.data;
-      const card = createElement("article", "credential-card credential-training-card");
-      const preview = createElement("div", "credential-preview credential-training-preview");
-      preview.appendChild(createElement("span", "credential-training-mark", "CCNA"));
-      preview.appendChild(createElement("span", "mono credential-open", "PARCOURS SUIVI"));
-      const detail = createElement("div", "credential-card-detail");
-      detail.appendChild(createElement("span", "mono credential-category", trackData.kind));
-      detail.appendChild(createElement("strong", "", trackData.title));
-      detail.appendChild(createElement("span", "", content.profiles.veufnoir.alias));
-      detail.appendChild(createElement("span", "credential-description", trackData.description));
-      card.append(preview, detail);
-      return card;
     }
 
     function updateCarouselControls() {
@@ -662,7 +645,7 @@
       });
       track.replaceChildren();
       visibleItems.forEach(function (item) {
-        track.appendChild(item.type === "document" ? createCredentialCard(item) : createTrainingCard(item));
+        track.appendChild(createCredentialCard(item));
       });
       carouselStatus.textContent = visibleItems.length + (visibleItems.length === 1 ? " élément" : " éléments");
       viewport.scrollLeft = 0;
