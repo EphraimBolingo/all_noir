@@ -21,8 +21,8 @@ window.DUALITY_CONTENT = {
           id: "allcod-adhesion",
           title: "Adesco",
           description: "Plateforme d’adhésion consultable en ligne.",
-          image: "assets/images/code-project.svg",
-          imageIsDemo: true,
+          image: "assets/images/adesco.webp",
+          imageIsDemo: false,
           isDemo: false,
           category: "allcod",
           status: "EN LIGNE",
@@ -34,19 +34,21 @@ window.DUALITY_CONTENT = {
           id: "allcod-jordan-hair",
           title: "Jordan Hair",
           description: "Site web réalisé pour le salon de coiffure Jordan Hair.",
-          image: "assets/images/code-project.svg",
-          imageIsDemo: true,
+          image: "assets/images/jordan.webp",
+          imageIsDemo: false,
+          imagePosition: "top",
           isDemo: false,
           category: "allcod",
           role: "Réalisation du site web",
           technologies: []
         },
         {
-          id: "allcod-teka-express",
-          title: "Teka-Express",
-          description: "Site de commerce électronique Teka-Express.",
-          image: "assets/images/code-project.svg",
-          imageIsDemo: true,
+          id: "allcod-somba-express",
+          title: "Somba Express",
+          description: "Site de commerce électronique Somba Express.",
+          image: "assets/images/somba.webp",
+          imageIsDemo: false,
+          imagePosition: "top",
           isDemo: false,
           category: "allcod",
           role: "Réalisation du site de commerce électronique",
@@ -76,7 +78,8 @@ window.DUALITY_CONTENT = {
           isDemo: false,
           category: "veufnoir",
           role: "Création du réseau et du laboratoire intelligent",
-          technologies: []
+          technologies: [],
+          gallery: []
         },
         {
           id: "veufnoir-grand-hotel-ledya",
@@ -87,7 +90,8 @@ window.DUALITY_CONTENT = {
           isDemo: false,
           category: "veufnoir",
           role: "Réinstallation du réseau, d’Internet et du système de surveillance",
-          technologies: []
+          technologies: [],
+          gallery: []
         }
       ]
     }
@@ -97,8 +101,9 @@ window.DUALITY_CONTENT = {
       id: "net-rapide",
       title: "Net-Rapide",
       description: "Projet commun visant à fournir un accès à Internet à une communauté, à un coût abordable et avec une mise en service rapide.",
-      image: "assets/images/dual-system.svg",
-      imageIsDemo: true,
+      image: "assets/images/netrapide.webp",
+      imageIsDemo: false,
+      imageFit: "contain",
       isDemo: false,
       category: "collaborations",
       status: "SITE WEB EN LIGNE",

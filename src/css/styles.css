@@ -239,6 +239,13 @@ button:focus-visible, a:focus-visible, select:focus-visible, iframe:focus-visibl
 .project-visual { position: relative; aspect-ratio: 2.4 / 1; overflow: hidden; border-bottom: 1px solid var(--rule); background: #080d11; }
 .project-visual img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
 .project-entry:hover .project-visual img { transform: scale(1.025); }
+.project-visual-top img { object-position: center top; }
+.project-visual-contain img { padding: 1rem; object-fit: contain; }
+.project-carousel-controls { position: absolute; z-index: 2; bottom: .45rem; left: .55rem; display: flex; align-items: center; gap: .3rem; padding: .2rem; border: 1px solid rgba(168,185,194,.35); background: rgba(5,9,12,.88); }
+.project-carousel-arrow { display: grid; width: 30px; height: 28px; place-items: center; border: 0; background: transparent; color: var(--white); cursor: pointer; font-size: 1rem; }
+.project-carousel-arrow:hover, .project-carousel-arrow:focus-visible { color: var(--cyan); }
+.project-carousel-count { min-width: 3.2rem; color: #d1dce1; font-size: .52rem; text-align: center; }
+.project-visual-carousel .project-number { top: .55rem; right: .6rem; bottom: auto; padding: .2rem .35rem; background: rgba(5,9,12,.82); }
 .demo-watermark, .project-number { position: absolute; bottom: .45rem; color: #95a8b2; font-size: .48rem; }
 .demo-watermark { left: .55rem; padding: .2rem .35rem; background: rgba(5,9,12,.87); }
 .project-number { right: .6rem; }

@@ -1,6 +1,6 @@
 # Projets communiqués et contenus restants
 
-Les titres et descriptions ci-dessous proviennent des informations communiquées par l’équipe. Les visuels des cartes restent des illustrations de démonstration et ne sont pas des captures des projets.
+Les titres, descriptions et captures ci-dessous proviennent des informations et fichiers communiqués par l’équipe. Les images des projets de Pedro restent à recevoir.
 
 ## Projets
 
@@ -8,14 +8,14 @@ Les titres et descriptions ci-dessous proviennent des informations communiquées
 |---|---|---|
 | Adesco | All Cod | Plateforme d’adhésion consultable en ligne |
 | Jordan Hair | All Cod | Site web pour un salon de coiffure |
-| Teka-Express | All Cod | Site de commerce électronique |
+| Somba Express | All Cod | Site de commerce électronique |
 | Réseau et laboratoire intelligent — UCKIM | VeufNoir | Réseau informatique et laboratoire intelligent à l’Université UCKIM, à Kimpese |
 | Réseau et surveillance — Grand Hôtel Ledya | VeufNoir | Réinstallation du réseau de communication, d’Internet et du système de surveillance à Matadi |
 | Net-Rapide | Projet commun | Accès Internet communautaire à coût abordable et mise en service rapide ; le site et la plateforme de suivi client sont regroupés sous ce projet |
 
 Le site d’Adesco est [accessible ici](https://adesco-adhesion.page.gd/). Le site de Net-Rapide est [net-rapide.page.gd](https://net-rapide.page.gd/). L’URL de la plateforme de suivi client n’a pas été communiquée et n’est donc pas affichée.
 
-Les détails de technologie, les dates, les dépôts de code et les captures authentiques des projets ne sont pas encore fournis. Ils ne sont pas inventés ; les cartes utilisent des illustrations clairement signalées. Modifiez les tableaux `profiles.allcod.projects`, `profiles.veufnoir.projects` et `collaborations` dans `src/data/content.js` lorsque ces éléments seront disponibles.
+Les captures fournies sont associées à Adesco, Hair Jordan et Somba Express ; le logo fourni est utilisé pour Net-Rapide. Les visuels des deux projets de Pedro restent des illustrations de démonstration jusqu’à réception de ses photos, qui pourront être intégrées au carrousel de chaque projet. Les détails de technologie, les dates et les dépôts de code ne sont pas encore fournis et ne sont pas inventés.
 
 ## Documents de formation
 

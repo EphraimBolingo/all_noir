@@ -125,17 +125,32 @@
 
   function renderProject(project, index) {
     const category = project.category;
+    const title = project.title && project.title.trim()
+      ? project.title
+      : (category === "collaborations" ? "Projet commun " : "Projet individuel ") + String(index + 1).padStart(2, "0");
     const article = createElement("article", "project-entry project-entry-" + category);
     const visual = createElement("div", "project-visual");
+    const galleryImages = getProjectGalleryImages(project);
     const image = documentRef.createElement("img");
-    image.src = normalizeDocumentPath(project.image) || defaultProjectImage(category);
-    image.alt = "";
+    image.src = galleryImages.length
+      ? galleryImages[0].src
+      : normalizeDocumentPath(project.image) || defaultProjectImage(category);
+    image.alt = galleryImages.length
+      ? galleryImages[0].alt
+      : project.imageAlt || "Aperçu de " + title;
     image.width = 680;
     image.height = 360;
     image.loading = "lazy";
+    image.decoding = "async";
     visual.appendChild(image);
-    if (project.imageIsDemo || project.isDemo) {
+    if (project.imageFit === "contain") visual.classList.add("project-visual-contain");
+    if (project.imagePosition === "top") visual.classList.add("project-visual-top");
+    if (!galleryImages.length && (project.imageIsDemo || project.isDemo)) {
       visual.appendChild(createElement("span", "demo-watermark mono", "ILLUSTRATION DE DÉMONSTRATION"));
+    }
+    if (galleryImages.length > 1) {
+      visual.classList.add("project-visual-carousel");
+      renderProjectCarousel(visual, image, galleryImages, title);
     }
     visual.appendChild(createElement("span", "project-number mono", String(index + 1).padStart(2, "0")));
 
@@ -146,9 +161,6 @@
     meta.appendChild(createElement("span", "demo-label", project.isDemo ? "EMPLACEMENT À REMPLACER" : project.status || "PROJET RÉALISÉ"));
     detail.appendChild(meta);
 
-    const title = project.title && project.title.trim()
-      ? project.title
-      : (isShared ? "Projet commun " : "Projet individuel ") + String(index + 1).padStart(2, "0");
     detail.appendChild(createElement("h3", "project-title", title));
     detail.appendChild(createElement("p", "project-description", project.description || "Description à renseigner."));
 
@@ -207,6 +219,55 @@
     if (hasFooterContent) detail.appendChild(footer);
     article.append(visual, detail);
     return article;
+  }
+
+  function getProjectGalleryImages(project) {
+    if (!Array.isArray(project.gallery)) return [];
+    return project.gallery.reduce(function (images, item, index) {
+      const source = item && typeof item === "object" ? normalizeDocumentPath(item.src) : "";
+      if (!source || !/\.(png|jpe?g|webp|avif|svg)$/i.test(source)) {
+        console.error("Image de galerie invalide pour le projet " + project.title + ".");
+        return images;
+      }
+      images.push({
+        src: source,
+        alt: typeof item.alt === "string" && item.alt.trim()
+          ? item.alt
+          : "Image " + (index + 1) + " du projet " + project.title
+      });
+      return images;
+    }, []);
+  }
+
+  function renderProjectCarousel(visual, image, images, title) {
+    const controls = createElement("div", "project-carousel-controls");
+    const previous = createElement("button", "project-carousel-arrow", "←");
+    const count = createElement("span", "project-carousel-count mono");
+    const next = createElement("button", "project-carousel-arrow", "→");
+    let activeIndex = 0;
+
+    previous.type = "button";
+    previous.setAttribute("aria-label", "Image précédente de " + title);
+    next.type = "button";
+    next.setAttribute("aria-label", "Image suivante de " + title);
+    count.setAttribute("aria-live", "polite");
+
+    function showImage(index) {
+      activeIndex = (index + images.length) % images.length;
+      image.src = images[activeIndex].src;
+      image.alt = images[activeIndex].alt;
+      count.textContent = String(activeIndex + 1).padStart(2, "0") + " / " + String(images.length).padStart(2, "0");
+    }
+
+    previous.addEventListener("click", function () {
+      showImage(activeIndex - 1);
+    });
+    next.addEventListener("click", function () {
+      showImage(activeIndex + 1);
+    });
+    showImage(activeIndex);
+    controls.append(previous, count, next);
+    visual.appendChild(controls);
   }
 
   function defaultProjectImage(category) {
