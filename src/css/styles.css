@@ -99,7 +99,7 @@ button:focus-visible, a:focus-visible, select:focus-visible, iframe:focus-visibl
 .home-section.page-frame { position: relative; width: 100%; min-height: max(690px, calc(100svh - 47px)); margin-inline: 0; padding-top: 1px; overflow: hidden; border-bottom: 1px solid var(--rule-soft); }
 .hero-visual { position: absolute; inset: 0; overflow: hidden; }
 .hero-vortex-video, .hero-video-shade { position: absolute; inset: 0; width: 100%; height: 100%; }
-.hero-vortex-video { object-fit: cover; }
+.hero-vortex-video { object-fit: cover; filter: contrast(1.1) saturate(1.06); }
 @media (min-width: 900px) {
   .hero-vortex-video { transform: scale(1.38); transform-origin: center top; }
 }
