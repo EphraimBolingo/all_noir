@@ -97,10 +97,10 @@
             <div class="profile-copy">
               <div class="profile-identity">
                 <h3 id="allcod-name"><span data-person="allcod-name">Ephraim Wayanga Bolingo</span><strong>— <i data-person="allcod-alias">All Cod</i></strong></h3>
-                <figure class="profile-portrait" data-profile-portrait="allcod" aria-label="Portrait d’Ephraim à ajouter">
+                <button class="profile-portrait" data-profile-portrait="allcod" type="button" disabled>
                   <img alt="" hidden>
-                  <figcaption class="profile-portrait-placeholder"><span>PHOTO</span><span>À AJOUTER</span></figcaption>
-                </figure>
+                  <span class="profile-portrait-placeholder"><span>PHOTO</span><span>À AJOUTER</span></span>
+                </button>
               </div>
               <p class="education-line" data-education="allcod-degree">Bac+3 en génie logiciel</p>
               <p data-person="allcod-bio">Passionné par le développement et la création de solutions numériques, je conçois des applications performantes, propres et évolutives.</p>
@@ -128,10 +128,10 @@
             <div class="profile-copy">
               <div class="profile-identity">
                 <h3 id="veufnoir-name"><span data-person="veufnoir-name">Junior Pedro Zola</span><strong>— <i data-person="veufnoir-alias">VeufNoir</i></strong></h3>
-                <figure class="profile-portrait profile-portrait-orange" data-profile-portrait="veufnoir" aria-label="Portrait de Junior à ajouter">
+                <button class="profile-portrait profile-portrait-orange" data-profile-portrait="veufnoir" type="button" disabled>
                   <img alt="" hidden>
-                  <figcaption class="profile-portrait-placeholder"><span>PHOTO</span><span>À AJOUTER</span></figcaption>
-                </figure>
+                  <span class="profile-portrait-placeholder"><span>PHOTO</span><span>À AJOUTER</span></span>
+                </button>
               </div>
               <p class="education-line"><span data-education="veufnoir-degree">Bac+3 en réseaux</span><span class="education-separator"> · </span><span data-education="veufnoir-ccna">Formation CCNA 1, 2 et 3 suivie</span></p>
               <p data-person="veufnoir-bio">Orienté vers les infrastructures, les réseaux et la cybersécurité, Junior s’intéresse aux environnements stables, sécurisés et résilients.</p>
@@ -180,8 +180,8 @@
       </div>
       <div class="project-controls">
         <div class="project-filters" id="project-filters" role="group" aria-label="Filtrer les projets">
-          <button type="button" data-filter="collaborations" aria-pressed="true">Projets communs <span data-filter-count="collaborations">1</span></button>
-          <button type="button" data-filter="all" aria-pressed="false">Tous <span data-filter-count="all">6</span></button>
+          <button type="button" data-filter="collaborations" aria-pressed="false">Projets communs <span data-filter-count="collaborations">1</span></button>
+          <button type="button" data-filter="all" aria-pressed="true">Tous <span data-filter-count="all">6</span></button>
           <button type="button" data-filter="allcod" aria-pressed="false">All Cod <span data-filter-count="allcod">3</span></button>
           <button type="button" data-filter="veufnoir" aria-pressed="false">VeufNoir <span data-filter-count="veufnoir">2</span></button>
         </div>
@@ -239,6 +239,13 @@
     <div class="viewer-meta" id="viewer-meta"></div><p class="viewer-description" id="viewer-description" hidden></p>
     <div class="viewer-canvas" id="viewer-canvas"></div>
     <div class="viewer-footer"><button id="viewer-zoom" type="button" aria-pressed="false" hidden>Agrandir l’image</button><a id="viewer-original" target="_blank" rel="noopener noreferrer" hidden>Ouvrir le fichier original ↗</a><a id="viewer-verification" target="_blank" rel="noopener noreferrer" hidden>Vérification authentique ↗</a></div>
+  </dialog>
+  <dialog class="portrait-viewer" id="portrait-viewer" aria-labelledby="portrait-viewer-title">
+    <div class="portrait-viewer-header">
+      <div><span class="mono">PORTRAIT / PROFIL</span><h2 id="portrait-viewer-title"></h2></div>
+      <button id="portrait-viewer-close" type="button" aria-label="Fermer le portrait">×</button>
+    </div>
+    <div class="portrait-viewer-image-wrap"><img id="portrait-viewer-image" alt=""></div>
   </dialog>
 </body>
 </html>

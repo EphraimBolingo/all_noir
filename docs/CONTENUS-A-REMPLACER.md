@@ -13,7 +13,7 @@ Les titres et descriptions ci-dessous proviennent des informations communiquées
 | Réseau et surveillance — Grand Hôtel Ledya | VeufNoir | Réinstallation du réseau de communication, d’Internet et du système de surveillance à Matadi |
 | Net-Rapide | Projet commun | Accès Internet communautaire à coût abordable et mise en service rapide ; le site et la plateforme de suivi client sont regroupés sous ce projet |
 
-Le site d’Adesco est [accessible ici](https://adhesco-adhesion.page.gd/). Le site de Net-Rapide est [net-rapide.page.gd](https://net-rapide.page.gd/). L’URL de la plateforme de suivi client n’a pas été communiquée et n’est donc pas affichée.
+Le site d’Adesco est [accessible ici](https://adesco-adhesion.page.gd/). Le site de Net-Rapide est [net-rapide.page.gd](https://net-rapide.page.gd/). L’URL de la plateforme de suivi client n’a pas été communiquée et n’est donc pas affichée.
 
 Les détails de technologie, les dates, les dépôts de code et les captures authentiques des projets ne sont pas encore fournis. Ils ne sont pas inventés ; les cartes utilisent des illustrations clairement signalées. Modifiez les tableaux `profiles.allcod.projects`, `profiles.veufnoir.projects` et `collaborations` dans `src/data/content.js` lorsque ces éléments seront disponibles.
 

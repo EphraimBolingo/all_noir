@@ -51,10 +51,10 @@
   }
 
   function renderPortrait(profileId, profile) {
-    const figure = documentRef.querySelector('[data-profile-portrait="' + profileId + '"]');
-    if (!figure) return;
-    const image = figure.querySelector("img");
-    const placeholder = figure.querySelector(".profile-portrait-placeholder");
+    const button = documentRef.querySelector('[data-profile-portrait="' + profileId + '"]');
+    if (!button) return;
+    const image = button.querySelector("img");
+    const placeholder = button.querySelector(".profile-portrait-placeholder");
     const source = normalizeDocumentPath(profile.portrait);
     const isImage = /\.(png|jpe?g|webp|avif)$/i.test(source);
     if (!image || !placeholder) return;
@@ -62,6 +62,7 @@
       image.hidden = true;
       image.removeAttribute("src");
       placeholder.hidden = false;
+      button.disabled = true;
       if (profile.portrait) {
         console.error("Chemin de portrait invalide pour " + profile.name + ". Utilisez une image locale JPG, PNG, WebP ou AVIF.");
       }
@@ -70,12 +71,56 @@
     image.addEventListener("error", function () {
       image.hidden = true;
       placeholder.hidden = false;
+      button.disabled = true;
       console.error("Impossible de charger le portrait de " + profile.name + " : " + source);
+    }, { once: true });
+    image.addEventListener("load", function () {
+      button.disabled = false;
+      placeholder.hidden = true;
     }, { once: true });
     image.src = source;
     image.alt = "Portrait de " + profile.name;
     image.hidden = false;
-    placeholder.hidden = true;
+    button.setAttribute("aria-label", "Afficher le portrait de " + profile.name + " en grand");
+  }
+
+  function initializePortraitViewer() {
+    const viewer = documentRef.getElementById("portrait-viewer");
+    const image = documentRef.getElementById("portrait-viewer-image");
+    const title = documentRef.getElementById("portrait-viewer-title");
+    const close = documentRef.getElementById("portrait-viewer-close");
+    if (!viewer || !image || !title || !close) return;
+
+    documentRef.querySelectorAll("[data-profile-portrait]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        const profile = content.profiles[button.getAttribute("data-profile-portrait")];
+        const source = profile && normalizeDocumentPath(profile.portrait);
+        if (!profile || !source) {
+          console.error("Impossible d’ouvrir le portrait : profil ou image introuvable.");
+          return;
+        }
+        title.textContent = profile.name;
+        image.src = source;
+        image.alt = "Portrait de " + profile.name;
+        viewer.showModal();
+      });
+    });
+
+    close.addEventListener("click", function () {
+      viewer.close();
+    });
+    viewer.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && viewer.open) {
+        event.preventDefault();
+        viewer.close();
+      }
+    });
+    viewer.addEventListener("click", function (event) {
+      if (event.target === viewer) viewer.close();
+    });
+    viewer.addEventListener("close", function () {
+      image.removeAttribute("src");
+    });
   }
 
   function renderProject(project, index) {
@@ -197,7 +242,7 @@
       count.textContent = String(activeCounts[category] || 0);
     });
 
-    let activeFilter = "collaborations";
+    let activeFilter = "all";
     function render() {
       const visible = projects.filter(function (entry) {
         return activeFilter === "all" || entry.project.category === activeFilter;
@@ -561,6 +606,7 @@
     documentRef.documentElement.classList.add("js");
     renderProfiles();
     initializeProjects();
+    initializePortraitViewer();
     renderContacts();
     renderCertificates();
     initializeViewer();

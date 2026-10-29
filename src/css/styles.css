@@ -179,8 +179,11 @@ button:focus-visible, a:focus-visible, select:focus-visible, iframe:focus-visibl
 .profile-copy h3 strong { color: var(--cyan); font-size: 1.05em; font-weight: 550; }
 .profile-panel-orange .profile-copy h3 strong { color: var(--orange); }
 .profile-copy h3 i { font-style: normal; }
-.profile-portrait { position: relative; width: 70px; height: 82px; overflow: hidden; margin: 0; border: 1px solid var(--cyan-dim); background: #0a1217; }
+.profile-portrait { position: relative; width: 70px; height: 82px; overflow: hidden; margin: 0; padding: 0; border: 1px solid var(--cyan-dim); background: #0a1217; cursor: pointer; }
 .profile-portrait-orange { border-color: var(--orange-dim); background: #120e0c; }
+.profile-portrait:disabled { cursor: default; }
+.profile-portrait:not(:disabled):hover, .profile-portrait:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+.profile-portrait-orange:not(:disabled):hover, .profile-portrait-orange:focus-visible { outline-color: var(--orange); }
 .profile-portrait img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
 .profile-portrait img[hidden], .profile-portrait-placeholder[hidden] { display: none; }
 .profile-portrait-placeholder { display: grid; width: 100%; height: 100%; align-content: center; justify-items: center; gap: .25rem; color: #71b6c1; font-size: .47rem; letter-spacing: .06em; }
@@ -334,6 +337,15 @@ button:focus-visible, a:focus-visible, select:focus-visible, iframe:focus-visibl
 .viewer-unavailable { max-width: 420px; padding: 2rem; color: var(--muted); text-align: center; }
 .viewer-footer { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .7rem; padding: .55rem 1rem; border-top: 1px solid var(--rule); }
 .viewer-footer a { align-self: center; color: var(--cyan); font-size: .61rem; }
+
+.portrait-viewer { width: min(520px, calc(100% - 1.5rem)); max-width: none; max-height: calc(100svh - 1.5rem); padding: 0; overflow: hidden; border: 1px solid #40515a; border-radius: 0; background: #080d11; color: var(--white); }
+.portrait-viewer::backdrop { background: rgba(2,5,7,.82); }
+.portrait-viewer-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .75rem 1rem; border-bottom: 1px solid var(--rule); }
+.portrait-viewer-header .mono { color: #80949e; font-size: .51rem; }
+.portrait-viewer-header h2 { margin: .15rem 0 0; font-size: .8rem; font-weight: 500; }
+.portrait-viewer-header button { min-width: 34px; min-height: 32px; border: 1px solid var(--rule); background: transparent; color: var(--white); cursor: pointer; font-size: 1rem; }
+.portrait-viewer-image-wrap { display: grid; min-height: 180px; max-height: calc(100svh - 90px); padding: .75rem; place-items: center; background: #11181d; }
+.portrait-viewer-image-wrap img { display: block; width: auto; max-width: 100%; height: auto; max-height: calc(100svh - 120px); object-fit: contain; image-rendering: auto; }
 
 @keyframes console-reveal { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes lockup-arrive { from { opacity: .45; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }

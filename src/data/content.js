@@ -28,7 +28,7 @@ window.DUALITY_CONTENT = {
           status: "EN LIGNE",
           role: "Réalisation de la plateforme d’adhésion",
           technologies: [],
-          demoUrl: "https://adhesco-adhesion.page.gd/"
+          demoUrl: "https://adesco-adhesion.page.gd/"
         },
         {
           id: "allcod-jordan-hair",
