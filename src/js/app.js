@@ -835,11 +835,13 @@
       return;
     }
 
-    video.addEventListener("error", function () {
+    if (video.error) {
       console.error("Impossible de charger la vidéo du hero : " + source);
-    }, { once: true });
-    video.preload = "auto";
-    video.src = versionedAssetUrl(source);
+    } else {
+      video.addEventListener("error", function () {
+        console.error("Impossible de charger la vidéo du hero : " + source);
+      }, { once: true });
+    }
   }
 
   function initializeActiveNavigation() {
