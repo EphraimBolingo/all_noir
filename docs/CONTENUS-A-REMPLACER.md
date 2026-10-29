@@ -1,6 +1,6 @@
 # Projets communiqués et contenus restants
 
-Les titres, descriptions et captures ci-dessous proviennent des informations et fichiers communiqués par l’équipe. Les images des projets de Pedro restent à recevoir.
+Les titres, descriptions et captures ci-dessous proviennent des informations et fichiers communiqués par l’équipe.
 
 ## Projets
 
@@ -15,7 +15,7 @@ Les titres, descriptions et captures ci-dessous proviennent des informations et 
 
 Le site d’Adesco est [accessible ici](https://adesco-adhesion.page.gd/). Le site de Net-Rapide est [net-rapide.page.gd](https://net-rapide.page.gd/). L’URL de la plateforme de suivi client n’a pas été communiquée et n’est donc pas affichée.
 
-Les captures fournies sont associées à Adesco, Hair Jordan et Somba Express ; le logo fourni est utilisé pour Net-Rapide. Les visuels des deux projets de Pedro restent des illustrations de démonstration jusqu’à réception de ses photos, qui pourront être intégrées au carrousel de chaque projet. Les détails de technologie, les dates et les dépôts de code ne sont pas encore fournis et ne sont pas inventés.
+Les captures fournies sont associées à Adesco, Jordan Hair et Somba Express ; le logo fourni est utilisé pour Net-Rapide. Quatre photos sont maintenant associées au carrousel UCKIM et quatre au carrousel du Grand Hôtel Ledya. Les détails de technologie, les dates et les dépôts de code ne sont pas encore fournis et ne sont pas inventés.
 
 ## Documents de formation
 
@@ -27,7 +27,7 @@ Les coordonnées ne sont pas encore fournies. Complétez `contact.sharedPhone`, 
 
 ## Visuels
 
-Les SVG dans `assets/images/` sont des schémas abstraits de démonstration, pas des captures d'écran de projets. Remplacez les champs `image` d'un projet par un visuel réel que vous êtes autorisé à publier. La marque dans `assets/icons/duality-mark.svg` est une création locale provisoire, pas un logo institutionnel.
+Les schémas SVG utilisés comme visuels de projet sont des illustrations de démonstration, pas des captures de réalisations. Les photos des projets UCKIM et Grand Hôtel Ledya sont les visuels réels transmis par l’équipe. Remplacez les autres champs `image` par des visuels réels que vous êtes autorisé à publier. La marque dans `assets/icons/duality-mark.svg` est une création locale provisoire, pas un logo institutionnel.
 
 ## Informations volontairement non inventées
 

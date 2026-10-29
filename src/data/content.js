@@ -83,25 +83,35 @@ window.DUALITY_CONTENT = {
           id: "veufnoir-uckim-laboratoire",
           title: "Réseau et laboratoire intelligent — UCKIM",
           description: "Création d’un réseau informatique et d’un laboratoire intelligent à l’Université UCKIM, à Kimpese.",
-          image: "assets/images/network-project.svg",
-          imageIsDemo: true,
+          image: "assets/images/uckin1.webp",
+          imageIsDemo: false,
           isDemo: false,
           category: "veufnoir",
           role: "Création du réseau et du laboratoire intelligent",
           technologies: [],
-          gallery: []
+          gallery: [
+            { src: "assets/images/uckin1.webp", alt: "Intervention sur une baie d’équipements réseau à l’UCKIM" },
+            { src: "assets/images/uckin2.webp", alt: "Installation d’équipements et de câblage à l’UCKIM" },
+            { src: "assets/images/uckin3.webp", alt: "Configuration d’équipements dans une baie réseau à l’UCKIM" },
+            { src: "assets/images/uckin4.webp", alt: "Intervention sur un équipement réseau en laboratoire à l’UCKIM" }
+          ]
         },
         {
           id: "veufnoir-grand-hotel-ledya",
           title: "Réseau et surveillance — Grand Hôtel Ledya",
           description: "Réinstallation du réseau de communication, de l’accès Internet et du système de surveillance du Grand Hôtel Ledya, à Matadi.",
-          image: "assets/images/network-project.svg",
-          imageIsDemo: true,
+          image: "assets/images/ledya.webp",
+          imageIsDemo: false,
           isDemo: false,
           category: "veufnoir",
           role: "Réinstallation du réseau, d’Internet et du système de surveillance",
           technologies: [],
-          gallery: []
+          gallery: [
+            { src: "assets/images/ledya.webp", alt: "Équipement informatique installé au Grand Hôtel Ledya" },
+            { src: "assets/images/leya2.webp", alt: "Configuration d’équipements réseau au Grand Hôtel Ledya" },
+            { src: "assets/images/ledya3.webp", alt: "Intervention sur un poste et des équipements réseau au Grand Hôtel Ledya" },
+            { src: "assets/images/ledya4.webp", alt: "Équipements réseau et poste informatique au Grand Hôtel Ledya" }
+          ]
         }
       ]
     }

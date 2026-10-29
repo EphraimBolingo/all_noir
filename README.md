@@ -50,7 +50,7 @@ duality-portfolio/
 
 Modifiez les informations regroupées dans `src/data/content.js`. Les biographies, portraits, compétences, tableaux de projets, coordonnées et la liste `certificates` y sont centralisés. Chaque fiche de profil dispose d'un emplacement photo configurable ; consultez le guide [`docs/PERSONNALISATION.md`](docs/PERSONNALISATION.md) et la [liste des contenus à remplacer](docs/CONTENUS-A-REMPLACER.md).
 
-Le portfolio présente trois projets individuels d’All Cod, deux projets individuels de VeufNoir et un projet commun, Net-Rapide. La carte Net-Rapide regroupe son site et sa plateforme de suivi des clients. Les filtres et le tri s’appuient sur ces données ; les visuels restent des illustrations de démonstration, pas des captures réelles. Les coordonnées laissées vides restent signalées comme à renseigner. La galerie propose un carrousel et les filtres « Tous les documents », « Coursera » et « CCNA ». Elle contient quatre certificats Coursera authentiques d’Ephraïm et trois entrées CCNA distinctes obtenues par Pedro ; les images de ces certificats restent à ajouter.
+Le portfolio présente trois projets individuels d’All Cod, deux projets individuels de VeufNoir et un projet commun, Net-Rapide. La carte Net-Rapide regroupe son site et sa plateforme de suivi des clients. Les projets UCKIM et Grand Hôtel Ledya affichent chacun quatre photos réelles dans leur carrousel. Les coordonnées laissées vides restent signalées comme à renseigner. La galerie propose un carrousel de documents et les filtres « Tous les documents », « Coursera » et « CCNA ». Elle contient quatre certificats Coursera authentiques d’Ephraïm et trois entrées CCNA distinctes obtenues par Pedro ; les images de ces certificats restent à ajouter.
 
 ## Limites et ressources externes
 
@@ -60,7 +60,7 @@ Le portfolio présente trois projets individuels d’All Cod, deux projets indiv
 - L'intégration d'un PDF dépend du navigateur ; un lien vers le fichier original est aussi proposé.
 - Les polices système sont utilisées, sans chargement distant.
 - La vidéo locale `assets/videos/hero.mp4` couvre toute la section hero ; le titre et les quatre accès rapides sont superposés à l’image. Dès le démarrage du JavaScript, sa source est assignée avec `preload="auto"` avant le rendu du reste du contenu ; cette assignation lance le chargement sans redémarrage manuel, et son poster reste visible pendant le chargement. Le chargement est ignoré lorsque la réduction des animations est demandée. La vidéo dure environ 10 secondes, mesure 1280 × 720 et pèse environ 5,5 Mo ; sa vitesse réelle dépend aussi de la connexion et de l’hébergement. Les panneaux de code et d’architecture réseau sont actuellement masqués. La vidéo est muette et en boucle.
-- Les illustrations des projets sont des schémas abstraits locaux, marqués comme démonstrations, et non des captures de réalisations. La visualisation réseau est illustrative et ne réalise aucune analyse.
+- Les projets de Pedro utilisent les huit photos qu’il a fournies. Les schémas réseau de profil restent illustratifs et ne réalisent aucune analyse.
 - L'introduction animée est courte, peut être passée et respecte `prefers-reduced-motion`. La navigation et le contenu ne dépendent ni de WebGL ni d'une connexion réseau.
 
 ## Vérifications effectuées

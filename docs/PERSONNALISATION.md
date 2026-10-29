@@ -60,7 +60,7 @@ Pour les projets individuels, `category` vaut `allcod` ou `veufnoir` selon le ta
 
 Retirez les champs inconnus ou laissez-les vides. `isDemo` indique un emplacement de projet fictif ; `imageIsDemo` permet de signaler séparément une illustration de remplacement pour un projet réel. `status` est facultatif. Les technologies, contributions facultatives et liens non renseignés ne sont pas affichés. Aucune date n'est affichée sur les cartes de projet. Les URL de site et de code source ne s'affichent que lorsqu'elles sont renseignées ; les URL externes doivent être en HTTPS.
 
-Pour afficher plusieurs images d’un projet, ajoutez leurs chemins locaux et leurs descriptions dans `gallery`. À partir de deux images valides, la carte affiche un carrousel manuel avec commandes accessibles au clavier ; sans galerie ou avec une seule image, elle conserve un aperçu simple. Le carrousel ne défile pas automatiquement. Les images des projets de VeufNoir pourront être ajoutées de cette manière dans leurs objets de projet.
+Pour afficher plusieurs images d’un projet, ajoutez leurs chemins locaux et leurs descriptions dans `gallery`. À partir de deux images valides, la carte affiche un carrousel manuel avec commandes accessibles au clavier ; sans galerie ou avec une seule image, elle conserve un aperçu simple. Le carrousel ne défile pas automatiquement. Les projets UCKIM et Grand Hôtel Ledya de VeufNoir utilisent chacun quatre photos réelles dans leur carrousel.
 
 Le portfolio comprend actuellement trois projets All Cod, deux projets VeufNoir et un projet commun Net-Rapide. Pour présenter plusieurs livrables sous un seul projet commun, renseignez `deliverables` :
 
