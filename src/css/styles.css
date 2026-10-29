@@ -96,7 +96,7 @@ button:focus-visible, a:focus-visible, select:focus-visible, iframe:focus-visibl
 .header-note { justify-self: end; margin: 0; padding-left: 1rem; border-left: 1px solid var(--rule); color: var(--muted); font-size: .57rem; white-space: nowrap; }
 .header-note span { color: var(--cyan); }
 
-.home-section { position: relative; width: 100%; min-height: max(690px, calc(100svh - 47px)); margin-inline: 0; padding-top: 1px; overflow: hidden; border-bottom: 1px solid var(--rule-soft); }
+.home-section.page-frame { position: relative; width: 100%; min-height: max(690px, calc(100svh - 47px)); margin-inline: 0; padding-top: 1px; overflow: hidden; border-bottom: 1px solid var(--rule-soft); }
 .hero-visual { position: absolute; inset: 0; overflow: hidden; }
 .hero-vortex-video, .hero-video-shade { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hero-vortex-video { object-fit: cover; }
