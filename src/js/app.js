@@ -529,12 +529,19 @@
 
   function renderCertificates() {
     const documents = Array.isArray(content.certificates) ? content.certificates : [];
+    const trainingTracks = Array.isArray(content.trainingTracks) ? content.trainingTracks : [];
     const gallery = documentRef.getElementById("credential-gallery");
     const tools = documentRef.getElementById("credential-tools");
     const filters = documentRef.getElementById("credential-filters");
     if (!gallery || !tools || !filters) return;
 
-    if (!documents.length) {
+    const carouselItems = documents.map(function (document, index) {
+      return { type: "document", data: document, index: index };
+    }).concat(trainingTracks.map(function (track) {
+      return { type: "training", data: track };
+    }));
+
+    if (!carouselItems.length) {
       gallery.classList.remove("has-documents");
       gallery.replaceChildren();
       const empty = createElement("div", "empty-state");
@@ -548,21 +555,36 @@
       return;
     }
 
-    const availableFilters = [{ key: "all", label: "Tous les documents" }];
-    const issuers = Array.from(new Set(documents.map(function (item) { return item.issuer; }).filter(Boolean)));
-    const people = Array.from(new Set(documents.map(function (item) { return item.person; }).filter(Boolean)));
-    if (documents.length > 3) {
-      issuers.forEach(function (issuer) { availableFilters.push({ key: "issuer:" + issuer, label: issuer }); });
-      people.forEach(function (person) {
-        const label = person === "allcod" ? content.profiles.allcod.alias : person === "veufnoir" ? content.profiles.veufnoir.alias : person;
-        availableFilters.push({ key: "person:" + person, label: label });
-      });
-    }
-    tools.hidden = availableFilters.length === 1;
+    const availableFilters = [
+      { key: "all", label: "Tous les documents" },
+      { key: "ccna", label: "CCNA" },
+      { key: "coursera", label: "Coursera" }
+    ];
     filters.replaceChildren();
     gallery.classList.add("has-documents");
     let activeFilter = "all";
-    const galleryItems = [];
+    const carousel = createElement("section", "credential-carousel");
+    const carouselHeader = createElement("div", "credential-carousel-header");
+    const carouselStatus = createElement("span", "mono credential-carousel-status");
+    carouselStatus.setAttribute("aria-live", "polite");
+    const carouselControls = createElement("div", "credential-carousel-controls");
+    const previous = createElement("button", "credential-carousel-arrow", "Précédent");
+    previous.type = "button";
+    previous.setAttribute("aria-label", "Afficher les éléments précédents");
+    const next = createElement("button", "credential-carousel-arrow", "Suivant");
+    next.type = "button";
+    next.setAttribute("aria-label", "Afficher les éléments suivants");
+    const viewport = createElement("div", "credential-carousel-viewport");
+    viewport.setAttribute("role", "region");
+    viewport.setAttribute("aria-roledescription", "carrousel");
+    viewport.setAttribute("aria-label", "Documents et parcours de formation");
+    viewport.tabIndex = 0;
+    const track = createElement("div", "credential-carousel-track");
+
+    carouselControls.append(previous, next);
+    carouselHeader.append(carouselStatus, carouselControls);
+    viewport.appendChild(track);
+    carousel.append(carouselHeader, viewport);
 
     availableFilters.forEach(function (filter) {
       const button = createElement("button", "filter-button", filter.label);
@@ -573,23 +595,22 @@
         Array.from(filters.children).forEach(function (item) {
           item.setAttribute("aria-pressed", item === button ? "true" : "false");
         });
-        galleryItems.forEach(function (item) {
-          const visible = filter.key === "all" ||
-            (filter.key.startsWith("issuer:") && item.data.issuer === filter.key.slice(7)) ||
-            (filter.key.startsWith("person:") && item.data.person === filter.key.slice(7));
-          item.element.hidden = !visible;
-        });
+        renderCarousel();
       });
       filters.appendChild(button);
     });
 
     gallery.replaceChildren();
-    documents.forEach(function (item, index) {
+    gallery.appendChild(carousel);
+    tools.hidden = false;
+
+    function createCredentialCard(item) {
+      const document = item.data;
       const button = createElement("button", "credential-card");
       button.type = "button";
-      button.setAttribute("aria-label", "Consulter : " + (item.title || "Document sans titre renseigné"));
+      button.setAttribute("aria-label", "Consulter : " + (document.title || "Document sans titre renseigné"));
       const preview = createElement("span", "credential-preview");
-      const previewPath = normalizeDocumentPath(item.preview);
+      const previewPath = normalizeDocumentPath(document.preview);
       if (previewPath) {
         const image = documentRef.createElement("img");
         image.src = previewPath;
@@ -604,17 +625,67 @@
       }
       preview.appendChild(createElement("span", "credential-open mono", "CONSULTER ↗"));
       const detail = createElement("span", "credential-card-detail");
-      detail.appendChild(createElement("span", "mono credential-category", item.kind || "Type de document à préciser"));
-      detail.appendChild(createElement("strong", "", item.title || "Titre à renseigner"));
-      detail.appendChild(createElement("span", "", item.issuer || "Organisme à renseigner"));
-      if (item.date) detail.appendChild(createElement("time", "", item.date));
-      if (item.description) detail.appendChild(createElement("span", "credential-description", item.description));
+      detail.appendChild(createElement("span", "mono credential-category", document.kind || "Type de document à préciser"));
+      detail.appendChild(createElement("strong", "", document.title || "Titre à renseigner"));
+      detail.appendChild(createElement("span", "", document.issuer || "Organisme à renseigner"));
+      if (document.date) detail.appendChild(createElement("time", "", document.date));
+      if (document.description) detail.appendChild(createElement("span", "credential-description", document.description));
       button.append(preview, detail);
-      button.addEventListener("click", function () { openDocument(item, index); });
-      gallery.appendChild(button);
-      galleryItems.push({ element: button, data: item });
+      button.addEventListener("click", function () { openDocument(document, item.index); });
+      return button;
+    }
+
+    function createTrainingCard(item) {
+      const trackData = item.data;
+      const card = createElement("article", "credential-card credential-training-card");
+      const preview = createElement("div", "credential-preview credential-training-preview");
+      preview.appendChild(createElement("span", "credential-training-mark", "CCNA"));
+      preview.appendChild(createElement("span", "mono credential-open", "PARCOURS SUIVI"));
+      const detail = createElement("div", "credential-card-detail");
+      detail.appendChild(createElement("span", "mono credential-category", trackData.kind));
+      detail.appendChild(createElement("strong", "", trackData.title));
+      detail.appendChild(createElement("span", "", content.profiles.veufnoir.alias));
+      detail.appendChild(createElement("span", "credential-description", trackData.description));
+      card.append(preview, detail);
+      return card;
+    }
+
+    function updateCarouselControls() {
+      const maxScroll = viewport.scrollWidth - viewport.clientWidth;
+      previous.disabled = viewport.scrollLeft <= 1;
+      next.disabled = maxScroll <= 1 || viewport.scrollLeft >= maxScroll - 1;
+    }
+
+    function renderCarousel() {
+      const visibleItems = carouselItems.filter(function (item) {
+        return activeFilter === "all" || item.data.category === activeFilter;
+      });
+      track.replaceChildren();
+      visibleItems.forEach(function (item) {
+        track.appendChild(item.type === "document" ? createCredentialCard(item) : createTrainingCard(item));
+      });
+      carouselStatus.textContent = visibleItems.length + (visibleItems.length === 1 ? " élément" : " éléments");
+      viewport.scrollLeft = 0;
+      window.requestAnimationFrame(updateCarouselControls);
+    }
+
+    previous.addEventListener("click", function () {
+      viewport.scrollBy({ left: -viewport.clientWidth, behavior: reducedMotion.matches ? "auto" : "smooth" });
     });
-    tools.hidden = availableFilters.length === 1;
+    next.addEventListener("click", function () {
+      viewport.scrollBy({ left: viewport.clientWidth, behavior: reducedMotion.matches ? "auto" : "smooth" });
+    });
+    viewport.addEventListener("scroll", updateCarouselControls, { passive: true });
+    viewport.addEventListener("keydown", function (event) {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+      event.preventDefault();
+      viewport.scrollBy({
+        left: (event.key === "ArrowRight" ? 1 : -1) * viewport.clientWidth,
+        behavior: reducedMotion.matches ? "auto" : "smooth"
+      });
+    });
+    window.addEventListener("resize", updateCarouselControls, { passive: true });
+    renderCarousel();
   }
 
   const viewer = documentRef.getElementById("document-viewer");

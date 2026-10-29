@@ -15,7 +15,8 @@ Les contenus éditoriaux sont regroupés dans `src/data/content.js`. Modifiez ce
 | Image de projet | `projects[].image` ou `collaborations[].image` | Chemin vers un SVG/JPG/PNG/WebP local | Les illustrations sont signalées comme démonstrations tant qu'aucune capture authentique n'est fournie |
 | Numéro partagé | `contact.sharedPhone` | Numéro international, sans espaces recommandés | « À renseigner » est affiché |
 | E-mail et profils | `contact.allcod` / `contact.veufnoir` | E-mail ou URL HTTPS complète | Le contact vide n'est pas transformé en lien |
-| Certificats et attestations | `certificates` | Tableau d'objets (voir ci-dessous) | Quatre certificats Coursera d’All Cod sont déjà affichés |
+| Certificats et attestations | `certificates` | Tableau d'objets (voir ci-dessous) | Le carrousel est filtrable par organisme de formation |
+| Parcours sans certificat | `trainingTracks` | Tableau d'objets distinct des documents | Le parcours CCNA suivi par VeufNoir est affiché sans le présenter comme une certification |
 | Couleurs et animations | `src/css/styles.css` → variables `:root` et règles `@keyframes` | CSS | La palette actuelle est conservée |
 | Images d'illustration | `assets/images/` | SVG, PNG, JPG ou WebP | Utilisez les chemins d'image de démonstration existants |
 
@@ -87,6 +88,7 @@ certificates: [
     issuer: "Nom réel de l’organisme",
     person: "allcod",
     kind: "Attestation de formation",
+    category: "coursera",
     date: "",
     description: "",
     preview: "assets/certificates/document-01.webp",
@@ -98,6 +100,8 @@ certificates: [
 ```
 
 Valeurs reconnues pour `person` : `allcod` ou `veufnoir`. `kind` décrit le document réel (diplôme, attestation ou certificat). `date`, `description` et `verificationUrl` sont facultatifs. N'ajoutez un lien de vérification que s'il mène à une page authentique en HTTPS. Ne créez pas de faux certificat, de numéro ou de date.
+
+Valeurs de `category` utilisées par les filtres : `coursera` et `ccna`. Les certificats Coursera de Pedro peuvent être ajoutés ici avec `person: "veufnoir"` et `category: "coursera"`. Un parcours suivi sans document justificatif doit être ajouté dans `trainingTracks`, jamais dans `certificates` ; il apparaît dans le carrousel sans bouton de consultation de certificat.
 
 Pour une image seule, indiquez `file` avec le chemin de l'image et le type d'image correspondant, ou laissez `fileType` vide : le fichier image sera détecté par son extension. `preview` est facultatif ; si absent, la vignette présente un emplacement sans fabriquer d'aperçu. Le fichier original peut être ouvert séparément depuis la visionneuse. Si un PDF ne s'affiche pas intégré dans un navigateur, le lien du fichier original reste disponible.
 

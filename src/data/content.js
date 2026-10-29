@@ -138,6 +138,7 @@ window.DUALITY_CONTENT = {
       issuer: "University of Toronto · Coursera",
       person: "allcod",
       kind: "Certificat de cours",
+      category: "coursera",
       date: "21 septembre 2024",
       description: "Cours en ligne sans crédit autorisé par l’Université de Toronto et proposé par Coursera.",
       preview: "assets/certificates/brevet_ephra1.webp",
@@ -149,6 +150,7 @@ window.DUALITY_CONTENT = {
       issuer: "DeepLearning.AI · Coursera",
       person: "allcod",
       kind: "Certificat de cours",
+      category: "coursera",
       date: "27 juillet 2024",
       description: "Cours en ligne sans crédit autorisé par DeepLearning.AI et proposé par Coursera.",
       preview: "assets/certificates/brevet_ephra2.webp",
@@ -160,6 +162,7 @@ window.DUALITY_CONTENT = {
       issuer: "DeepLearning.AI · Coursera",
       person: "allcod",
       kind: "Certificat de cours",
+      category: "coursera",
       date: "10 juillet 2024",
       description: "Cours en ligne sans crédit autorisé par DeepLearning.AI et proposé par Coursera.",
       preview: "assets/certificates/brevet_ephra3.webp",
@@ -171,10 +174,21 @@ window.DUALITY_CONTENT = {
       issuer: "IBM · Coursera",
       person: "allcod",
       kind: "Certificat de cours",
+      category: "coursera",
       date: "13 juillet 2024",
       description: "Cours en ligne sans crédit autorisé par IBM et proposé par Coursera.",
       preview: "assets/certificates/vrevet_ephra4.webp",
       file: "assets/certificates/vrevet_ephra4.webp"
+    }
+  ],
+  trainingTracks: [
+    {
+      id: "veufnoir-ccna-training",
+      title: "Formation CCNA 1, 2 et 3 suivie",
+      person: "veufnoir",
+      category: "ccna",
+      kind: "Parcours de formation",
+      description: "Formation suivie par VeufNoir. Aucun certificat CCNA n’est revendiqué ni affiché."
     }
   ],
   contact: {

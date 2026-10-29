@@ -294,11 +294,25 @@ button:focus-visible, a:focus-visible, select:focus-visible, iframe:focus-visibl
 .credential-filters button { padding: .35rem .65rem; border: 1px solid var(--rule); background: transparent; color: var(--text); cursor: pointer; font-size: .62rem; }
 .credential-filters button:hover, .credential-filters button[aria-pressed="true"] { border-color: var(--cyan); color: var(--cyan); }
 .credential-gallery { margin: 0 1.4rem; }
-.credential-gallery.has-documents { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; }
+.credential-carousel-header { display: flex; align-items: center; justify-content: space-between; gap: .8rem; margin-bottom: .55rem; }
+.credential-carousel-status { color: var(--muted); font-size: .54rem; }
+.credential-carousel-controls { display: flex; gap: .35rem; }
+.credential-carousel-arrow { min-height: 32px; padding: .3rem .55rem; border: 1px solid var(--rule); background: transparent; color: var(--text); cursor: pointer; font-size: .58rem; }
+.credential-carousel-arrow:hover:not(:disabled) { border-color: var(--cyan); color: var(--cyan); }
+.credential-carousel-arrow:disabled { opacity: .4; cursor: default; }
+.credential-carousel-viewport { overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: x mandatory; scrollbar-color: var(--rule) transparent; scrollbar-width: thin; }
+.credential-carousel-viewport:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+.credential-carousel-track { display: flex; width: 100%; align-items: stretch; gap: .75rem; padding: 1px 0 .45rem; }
+.credential-carousel-track > * { min-width: 0; flex: 0 0 calc((100% - 1.5rem) / 3); scroll-snap-align: start; }
 .credential-card { display: block; padding: 0; border: 1px solid var(--rule); background: var(--panel); text-align: left; cursor: pointer; }
+.credential-training-card { cursor: default; }
 .credential-card:hover { border-color: var(--cyan-dim); }
+.credential-training-card:hover { border-color: var(--rule); }
 .credential-card[hidden] { display: none; }
 .credential-preview { position: relative; display: grid; aspect-ratio: 1.8 / 1; place-items: center; overflow: hidden; border-bottom: 1px solid var(--rule); background: #0a1014; }
+.credential-training-preview { align-content: center; justify-items: start; gap: .55rem; padding: 1.1rem; background: #0a0f12; }
+.credential-training-mark { color: var(--orange); font: 400 clamp(2.6rem, 5vw, 4rem)/1 var(--display); letter-spacing: .04em; }
+.credential-training-preview .credential-open { position: static; padding: 0; background: transparent; color: #b7a08e; }
 .credential-preview img { width: 100%; height: 100%; object-fit: contain; }
 .credential-placeholder-mark { color: var(--cyan); font-size: .7rem; }
 .credential-placeholder-copy { color: var(--muted); font-size: .65rem; }
@@ -435,7 +449,7 @@ button:focus-visible, a:focus-visible, select:focus-visible, iframe:focus-visibl
   .education-strip > div { padding: .55rem .65rem; }
   .education-strip > div + div { border-top: 1px solid var(--rule); border-left: 0; }
   .credential-controls, .credential-gallery { margin-inline: .25rem; }
-  .credential-gallery.has-documents { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .credential-carousel-track > * { flex-basis: calc((100% - .75rem) / 2); }
   .credential-card-detail { padding: .45rem; }
   .credential-card-detail strong { font-size: .62rem; }
   .empty-state { padding: .75rem; }
@@ -464,7 +478,7 @@ button:focus-visible, a:focus-visible, select:focus-visible, iframe:focus-visibl
   .profile-panel-body { grid-template-columns: 1fr; }
   .profile-art-network { min-height: 175px; }
   .project-filters button { padding-inline: .42rem; }
-  .credential-gallery.has-documents { grid-template-columns: 1fr; }
+  .credential-carousel-track > * { flex-basis: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -474,5 +488,5 @@ button:focus-visible, a:focus-visible, select:focus-visible, iframe:focus-visibl
 }
 @media (forced-colors: active) {
   .main-nav a[aria-current="location"]::after { background: LinkText; }
-  .profile-tags li, .profile-tool, .project-filters button[aria-pressed="true"] { border-color: LinkText; }
+  .profile-tags li, .profile-tool, .project-filters button[aria-pressed="true"], .credential-carousel-arrow { border-color: LinkText; }
 }

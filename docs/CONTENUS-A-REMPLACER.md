@@ -19,7 +19,7 @@ Les captures fournies sont associées à Adesco, Hair Jordan et Somba Express ; 
 
 ## Documents de formation
 
-Quatre certificats de cours Coursera authentiques d’Ephraïm sont fournis dans `assets/certificates/` et renseignés dans `certificates` de `src/data/content.js`. Ils concernent University of Toronto, DeepLearning.AI (deux certificats) et IBM. Les dates et intitulés ont été repris des documents. Aucun lien de vérification n’est ajouté ; les nouveaux documents peuvent être ajoutés avec leurs métadonnées après vérification de leur contenu.
+Quatre certificats de cours Coursera authentiques d’Ephraïm sont fournis dans `assets/certificates/` et renseignés dans `certificates` de `src/data/content.js`. Ils concernent University of Toronto, DeepLearning.AI (deux certificats) et IBM. Les dates et intitulés ont été repris des documents. Les certificats Coursera de Pedro restent à ajouter lorsque ses fichiers seront disponibles. Son parcours CCNA 1, 2 et 3 est indiqué comme suivi, sans revendiquer de certification ; aucune attestation CCNA n’est présente.
 
 ## Coordonnées et liens
 
