@@ -100,7 +100,7 @@ Les illustrations incluses dans `assets/images/` sont des schémas abstraits de 
 
 ## Ajouter la vidéo du hero
 
-La vidéo d'ambiance actuelle se trouve dans `assets/videos/hero.mp4`. Pour la remplacer, copiez un fichier MP4 ou WebM dans `assets/videos/`, puis modifiez `data-video-src` sur l'élément `#hero-vortex-video` de `index.html`. Une image de repli demeure visible si la vidéo ne peut pas être chargée. La vidéo est muette, en boucle, sans contrôles et elle n'est pas chargée si `prefers-reduced-motion` est activé. Pour conserver un rendu professionnel, privilégiez une boucle courte et fluide, un mouvement lent, une luminosité maîtrisée, sans flash ni texte incrusté ; gardez les visuels de code et d'équipements lisibles au-dessus de la vidéo. N'y montrez pas d'adresses IP, de comptes ou de données de réseau réels.
+La vidéo d'ambiance actuelle se trouve dans `assets/videos/hero.mp4`. Elle couvre toute la section hero, avec le titre et les quatre accès rapides au premier plan. Pour la remplacer, copiez un fichier MP4 ou WebM dans `assets/videos/`, puis modifiez `data-video-src` sur l'élément `#hero-vortex-video` de `index.html`. Une image de repli demeure visible si la vidéo ne peut pas être chargée. La vidéo est muette, en boucle, sans contrôles et elle n'est pas chargée si `prefers-reduced-motion` est activé. Pour conserver un rendu professionnel, privilégiez une boucle courte et fluide, un mouvement lent, une luminosité maîtrisée, sans flash ni texte incrusté ; gardez tout élément ajouté au premier plan lisible sur la vidéo. N'y montrez pas d'adresses IP, de comptes ou de données de réseau réels.
 
 ## Simplifier les animations et tester
 
