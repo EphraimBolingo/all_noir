@@ -194,6 +194,9 @@ button:focus-visible, a:focus-visible, select:focus-visible, iframe:focus-visibl
 .profile-tags { display: flex; flex-wrap: wrap; gap: .32rem; margin: 0; padding: 0; list-style: none; }
 .profile-tags li { padding: .18rem .36rem; border: 1px solid var(--cyan-dim); color: #61d6e8; font-size: .54rem; line-height: 1.5; }
 .profile-tags-orange li { border-color: var(--orange-dim); color: #ff995e; }
+.profile-tools { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem; margin: 0; padding: 0; list-style: none; }
+.profile-tool { display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid var(--cyan-dim); background: rgba(8,15,19,.78); }
+.profile-tool svg { display: block; width: 25px; height: 25px; overflow: visible; fill: currentColor; }
 .profile-art { position: relative; min-width: 0; }
 .profile-art-code { align-self: stretch; padding-top: .55rem; }
 .mini-code { padding: .65rem .5rem; border: 1px solid #293943; background: rgba(5,10,13,.8); color: #b4c1c8; }
@@ -471,5 +474,5 @@ button:focus-visible, a:focus-visible, select:focus-visible, iframe:focus-visibl
 }
 @media (forced-colors: active) {
   .main-nav a[aria-current="location"]::after { background: LinkText; }
-  .profile-tags li, .project-filters button[aria-pressed="true"] { border-color: LinkText; }
+  .profile-tags li, .profile-tool, .project-filters button[aria-pressed="true"] { border-color: LinkText; }
 }

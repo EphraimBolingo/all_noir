@@ -8,6 +8,94 @@
 
   const documentRef = window.document;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const toolIcons = {
+    html5: {
+      color: "#e34f26",
+      shapes: [
+        ["path", { d: "M8 5h32l-3 33-13 6-13-6z" }],
+        ["path", { d: "M15 13h18l-.6 6H21l.4 4h10.5l-1.2 10-6.7 3-6.7-3-.4-5h6l.2 1.2 1 .5 1-.5.3-3.2H18z", fill: "#fff" }]
+      ]
+    },
+    css3: {
+      color: "#1572b6",
+      shapes: [
+        ["path", { d: "M8 5h32l-3 33-13 6-13-6z" }],
+        ["path", { d: "M15 13h19l-.6 6-12.5 0-.3 3h12.5l-1.2 11-8.9 2.8-8.5-2.8-.5-5.3h6l.2 1.8 3.1 1 3.2-1 .4-3.5H16z", fill: "#fff" }]
+      ]
+    },
+    javascript: {
+      color: "#f7df1e",
+      shapes: [
+        ["rect", { x: "5", y: "5", width: "38", height: "38", rx: "3" }],
+        ["text", { x: "11", y: "34", fill: "#111", "font-size": "17", "font-weight": "700" }, "JS"]
+      ]
+    },
+    php: {
+      color: "#777bb4",
+      shapes: [
+        ["ellipse", { cx: "24", cy: "24", rx: "21", ry: "14" }],
+        ["text", { x: "7", y: "29", fill: "#fff", "font-size": "14", "font-weight": "700" }, "PHP"]
+      ]
+    },
+    vue: {
+      color: "#42b883",
+      shapes: [
+        ["path", { d: "M4 9h10l10 16L34 9h10L24 41z" }],
+        ["path", { d: "M14 9h7l3 5 3-5h7L24 25z", fill: "#35495e" }]
+      ]
+    },
+    web: {
+      color: "#38d7ef",
+      shapes: [
+        ["rect", { x: "5", y: "8", width: "38", height: "32", rx: "2", fill: "none", stroke: "currentColor", "stroke-width": "3" }],
+        ["path", { d: "M6 16h36M12 12h1m4 0h1m4 0h1", fill: "none", stroke: "currentColor", "stroke-width": "2", "stroke-linecap": "round" }],
+        ["path", { d: "m18 24-5 4 5 4m12-8 5 4-5 4m-3-10-4 12", fill: "none", stroke: "currentColor", "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round" }]
+      ]
+    },
+    database: {
+      color: "#42b883",
+      shapes: [
+        ["ellipse", { cx: "24", cy: "11", rx: "15", ry: "6", fill: "none", stroke: "currentColor", "stroke-width": "3" }],
+        ["path", { d: "M9 11v25c0 3 7 6 15 6s15-3 15-6V11M9 23c0 3 7 6 15 6s15-3 15-6M9 35c0 3 7 6 15 6s15-3 15-6", fill: "none", stroke: "currentColor", "stroke-width": "3" }]
+      ]
+    },
+    git: {
+      color: "#f05032",
+      shapes: [
+        ["path", { d: "M22 4 4 22a3 3 0 0 0 0 4l18 18a3 3 0 0 0 4 0l18-18a3 3 0 0 0 0-4L26 4a3 3 0 0 0-4 0z" }],
+        ["path", { d: "M17 16v16m0-8h14m0 0-5-5m5 5-5 5", fill: "none", stroke: "#fff", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }],
+        ["circle", { cx: "17", cy: "14", r: "3", fill: "#fff" }],
+        ["circle", { cx: "17", cy: "34", r: "3", fill: "#fff" }],
+        ["circle", { cx: "31", cy: "24", r: "3", fill: "#fff" }]
+      ]
+    },
+    github: {
+      color: "#c9d1d9",
+      shapes: [
+        ["path", { d: "M24 4a20 20 0 0 0-6.3 39c1 .2 1.3-.4 1.3-.9v-3.4c-5.4 1.2-6.5-2.3-6.5-2.3-.9-2.2-2.2-2.8-2.2-2.8-1.8-1.2.1-1.2.1-1.2 2 .1 3 2 3 2 1.8 3 4.7 2.1 5.8 1.6.2-1.3.7-2.1 1.3-2.6-4.3-.5-8.8-2.2-8.8-9.7 0-2.1.8-3.9 2-5.3-.2-.5-.9-2.5.2-5.2 0 0 1.7-.5 5.5 2a19 19 0 0 1 10 0c3.8-2.5 5.5-2 5.5-2 1.1 2.7.4 4.7.2 5.2a7.7 7.7 0 0 1 2 5.3c0 7.5-4.5 9.2-8.8 9.7.7.6 1.4 1.8 1.4 3.6v5.1c0 .5.4 1.1 1.4.9A20 20 0 0 0 24 4z" }]
+      ]
+    },
+    docker: {
+      color: "#2496ed",
+      shapes: [
+        ["path", { d: "M5 24h7v7H5zm9 0h7v7h-7zm9 0h7v7h-7zm-9-9h7v7h-7zm9 0h7v7h-7zm9 9h7v7h-7zM5 33h30c-2 7-8 11-17 11-8 0-13-4-15-11zm27-9c2-3 5-4 9-3-1 3-3 5-7 5z" }]
+      ]
+    },
+    desktop: {
+      color: "#38d7ef",
+      shapes: [
+        ["rect", { x: "5", y: "7", width: "38", height: "27", rx: "2", fill: "none", stroke: "currentColor", "stroke-width": "3" }],
+        ["path", { d: "M17 41h14m-7-7v7", fill: "none", stroke: "currentColor", "stroke-width": "3", "stroke-linecap": "round" }]
+      ]
+    },
+    office: {
+      color: "#7799ef",
+      shapes: [
+        ["path", { d: "M11 5h19l8 8v30H11a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3z" }],
+        ["path", { d: "M29 5v9h9M15 23h18M15 29h18M15 35h13", fill: "none", stroke: "#fff", "stroke-width": "2", "stroke-linecap": "round" }]
+      ]
+    }
+  };
 
   function setText(selector, value) {
     if (typeof value !== "string") return;
@@ -47,6 +135,34 @@
     list.replaceChildren();
     tags.forEach(function (tag) {
       list.appendChild(createElement("li", "", tag));
+    });
+  }
+
+  function renderTools(profileId, tools) {
+    const list = documentRef.getElementById(profileId + "-tools");
+    if (!list || !Array.isArray(tools)) return;
+    list.replaceChildren();
+    tools.forEach(function (tool) {
+      const icon = toolIcons[tool.icon];
+      if (!icon || !tool.name) return;
+      const item = createElement("li", "profile-tool");
+      item.title = tool.name;
+      const graphic = documentRef.createElementNS("http://www.w3.org/2000/svg", "svg");
+      graphic.setAttribute("viewBox", "0 0 48 48");
+      graphic.setAttribute("aria-hidden", "true");
+      graphic.setAttribute("focusable", "false");
+      graphic.style.color = icon.color;
+      icon.shapes.forEach(function (shape) {
+        const element = documentRef.createElementNS("http://www.w3.org/2000/svg", shape[0]);
+        Object.keys(shape[1]).forEach(function (attribute) {
+          element.setAttribute(attribute, shape[1][attribute]);
+        });
+        if (shape[2]) element.textContent = shape[2];
+        graphic.appendChild(element);
+      });
+      item.appendChild(graphic);
+      item.appendChild(createElement("span", "sr-only", tool.name));
+      list.appendChild(item);
     });
   }
 
@@ -360,7 +476,7 @@
     setText('[data-education="allcod-degree"]', allcod.education[0] || "");
     setText('[data-education="veufnoir-degree"]', remainingEducation[0] || "");
     setText('[data-education="veufnoir-ccna"]', ccnaTraining || "");
-    renderTags("allcod", allcod.tags);
+    renderTools("allcod", allcod.tools);
     renderTags("veufnoir", veufnoir.tags);
     renderPortrait("allcod", allcod);
     renderPortrait("veufnoir", veufnoir);

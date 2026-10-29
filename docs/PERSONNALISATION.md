@@ -8,7 +8,7 @@ Les contenus éditoriaux sont regroupés dans `src/data/content.js`. Modifiez ce
 |---|---|---|---|
 | Noms, alias, spécialités, biographies | `src/data/content.js` → `profiles.allcod` / `profiles.veufnoir` | Texte | Le texte initial est conservé |
 | Portraits | `profiles.allcod.portrait` / `profiles.veufnoir.portrait` | Chemin vers une photo locale dans `assets/images/` | `ephraim.webp` et `pedro.webp` sont associés aux profils correspondants |
-| Compétences visibles et formations | `profiles.<profil>.tags` / `education` | Tableaux de textes | La liste correspondante peut être vide |
+| Outils affichés en icônes et formations | `profiles.allcod.tools` / `education` | Outils avec un nom accessible et un identifiant d’icône ; tableau de textes pour la formation | Les icônes apparaissent uniquement pour les outils configurés |
 | Compétences détaillées | `profiles.<profil>.skills` | Tableau de textes | Informations éditoriales non rendues comme pastilles |
 | Projets individuels | `profiles.<profil>.projects` | Tableau d'objets | Trois projets All Cod et deux projets VeufNoir sont renseignés |
 | Projet commun | `collaborations` | Tableau d'objets | Net-Rapide regroupe son site et sa plateforme de suivi des clients |
@@ -27,7 +27,7 @@ Dans `src/data/content.js`, mettez à jour les champs du profil correspondant. L
 skills: ["Réseaux informatiques", "Administration réseau"]
 ```
 
-Les pastilles affichées sont définies par `tags` ; `skills` conserve une liste détaillée pour référence. Conservez la formulation exacte des qualifications documentées. Par exemple, « Formation CCNA 1, 2 et 3 suivie » ne signifie pas qu'une certification CCNA a été obtenue. Les établissements, dates et distinctions restent absents tant qu'ils ne sont pas vérifiés.
+Les outils d’All Cod sont affichés sous forme de petits SVG définis par `tools`, avec leurs noms disponibles pour les lecteurs d’écran et au survol. `skills` conserve une liste détaillée pour référence. VeufNoir conserve ses pastilles textuelles `tags`. Conservez la formulation exacte des qualifications documentées. Par exemple, « Formation CCNA 1, 2 et 3 suivie » ne signifie pas qu'une certification CCNA a été obtenue. Les établissements, dates et distinctions restent absents tant qu'ils ne sont pas vérifiés.
 
 Les portraits actuels se trouvent dans `assets/images/ephraim.webp` et `assets/images/pedro.webp`. Pour remplacer une photo, mettez à jour le fichier ou le champ `portrait` du profil correspondant. Les formats JPG, PNG, WebP et AVIF sont acceptés ; si une image configurée est absente, la fiche affiche un emplacement de remplacement.
 

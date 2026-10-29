@@ -7,9 +7,19 @@ window.DUALITY_CONTENT = {
       specialty: "Développement logiciel",
       biography: "Orienté vers le développement logiciel, la conception d’applications et de sites web, les bases de données et la création de solutions numériques utiles.",
       education: ["Bac+3 en génie logiciel"],
-      tags: [
-        "Développement", "Conception logicielle", "Solutions web", "HTML · CSS · JavaScript",
-        "PHP · Vue.js", "Bases de données", "Git · GitHub · Docker", "Logiciels natifs"
+      tools: [
+        { name: "HTML5", icon: "html5" },
+        { name: "CSS3", icon: "css3" },
+        { name: "JavaScript", icon: "javascript" },
+        { name: "PHP", icon: "php" },
+        { name: "Vue.js", icon: "vue" },
+        { name: "Sites et applications web", icon: "web" },
+        { name: "Bases de données", icon: "database" },
+        { name: "Git", icon: "git" },
+        { name: "GitHub", icon: "github" },
+        { name: "Docker", icon: "docker" },
+        { name: "Logiciels natifs", icon: "desktop" },
+        { name: "Outils bureautiques", icon: "office" }
       ],
       skills: [
         "Développement web", "HTML", "CSS", "JavaScript", "PHP", "Vue.js",
