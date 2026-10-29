@@ -638,6 +638,7 @@
     video.addEventListener("error", function () {
       console.error("Impossible de charger la vidéo du hero : " + source);
     }, { once: true });
+    video.preload = "auto";
     video.src = source;
     video.load();
   }
@@ -665,6 +666,7 @@
 
   function initialize() {
     documentRef.documentElement.classList.add("js");
+    initializeHeroVideo();
     renderProfiles();
     initializeProjects();
     initializePortraitViewer();
@@ -672,7 +674,6 @@
     renderCertificates();
     initializeViewer();
     initializeScene();
-    initializeHeroVideo();
     initializeActiveNavigation();
     setText("#current-year", String(new Date().getFullYear()));
   }

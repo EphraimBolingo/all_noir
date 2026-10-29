@@ -1,10 +1,14 @@
 VIDEO D'AMBIANCE DU HERO
 
 La vidéo actuelle est hero.mp4 ; son chemin est défini dans l'attribut
-data-video-src de l'élément #hero-vortex-video dans index.html.
+data-video-src de l'élément #hero-vortex-video dans index.html. Le JavaScript
+assigne immédiatement cette source avec preload="auto".
 Remplacez-la ici et mettez à jour ce chemin pour utiliser un autre fichier.
 
 Formats acceptés : MP4 (H.264) ou WebM.
 Préférences : boucle courte et fluide, mouvement lent, contraste modéré,
-aucun flash, aucune piste audio nécessaire. Une vidéo optimisée pour le web
-limite le temps de chargement sur mobile.
+aucun flash, aucune piste audio nécessaire.
+La vidéo actuelle dure environ 10 secondes, mesure 1280 × 720 et pèse environ
+5,5 Mo. Son index MP4 précède les images vidéo pour permettre la lecture
+progressive. L'attribut preload="auto" démarre le chargement dès la lecture du
+HTML ; la vitesse réelle dépend aussi de la connexion et de l'hébergement.
