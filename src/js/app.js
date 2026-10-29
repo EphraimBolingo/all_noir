@@ -7,6 +7,8 @@
   }
 
   const documentRef = window.document;
+  const appScript = documentRef.currentScript;
+  const assetVersion = appScript ? new URL(appScript.src, documentRef.baseURI).searchParams.get("v") : "";
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const toolIcons = {
     html5: {
@@ -111,6 +113,14 @@
     return element;
   }
 
+  function versionedAssetUrl(path) {
+    if (!assetVersion || !path) return path;
+    const url = new URL(path, documentRef.baseURI);
+    if (url.origin !== window.location.origin) return path;
+    url.searchParams.set("v", assetVersion);
+    return url.href;
+  }
+
   function createSafeLink(value, label, className) {
     if (!value || typeof value !== "string") return null;
     let url;
@@ -194,7 +204,7 @@
       button.disabled = false;
       placeholder.hidden = true;
     }, { once: true });
-    image.src = source;
+    image.src = versionedAssetUrl(source);
     image.alt = "Portrait de " + profile.name;
     image.hidden = false;
     button.setAttribute("aria-label", "Afficher le portrait de " + profile.name + " en grand");
@@ -216,7 +226,7 @@
           return;
         }
         title.textContent = profile.name;
-        image.src = source;
+        image.src = versionedAssetUrl(source);
         image.alt = "Portrait de " + profile.name;
         viewer.showModal();
       });
@@ -248,9 +258,9 @@
     const visual = createElement("div", "project-visual");
     const galleryImages = getProjectGalleryImages(project);
     const image = documentRef.createElement("img");
-    image.src = galleryImages.length
+    image.src = versionedAssetUrl(galleryImages.length
       ? galleryImages[0].src
-      : normalizeDocumentPath(project.image) || defaultProjectImage(category);
+      : normalizeDocumentPath(project.image) || defaultProjectImage(category));
     image.alt = galleryImages.length
       ? galleryImages[0].alt
       : project.imageAlt || "Aperçu de " + title;
@@ -366,11 +376,14 @@
     previous.setAttribute("aria-label", "Image précédente de " + title);
     next.type = "button";
     next.setAttribute("aria-label", "Image suivante de " + title);
-    count.setAttribute("aria-live", "polite");
+    count.setAttribute("aria-live", "off");
+    visual.setAttribute("role", "group");
+    visual.setAttribute("aria-label", "Images du projet " + title);
+    visual.setAttribute("aria-roledescription", "carrousel");
 
     function showImage(index) {
       activeIndex = (index + images.length) % images.length;
-      image.src = images[activeIndex].src;
+      image.src = versionedAssetUrl(images[activeIndex].src);
       image.alt = images[activeIndex].alt;
       count.textContent = String(activeIndex + 1).padStart(2, "0") + " / " + String(images.length).padStart(2, "0");
     }
@@ -381,6 +394,23 @@
     next.addEventListener("click", function () {
       showImage(activeIndex + 1);
     });
+    const autoplayTimer = window.setInterval(function () {
+      if (!visual.isConnected) {
+        window.clearInterval(autoplayTimer);
+        return;
+      }
+      const bounds = visual.getBoundingClientRect();
+      const isVisible = bounds.bottom > 0 && bounds.top < window.innerHeight
+        && bounds.right > 0 && bounds.left < window.innerWidth;
+      if (
+        reducedMotion.matches
+        || documentRef.hidden
+        || !isVisible
+        || visual.matches(":hover")
+        || visual.contains(documentRef.activeElement)
+      ) return;
+      showImage(activeIndex + 1);
+    }, 2000);
     showImage(activeIndex);
     controls.append(previous, count, next);
     visual.appendChild(controls);
@@ -611,7 +641,7 @@
       const previewPath = normalizeDocumentPath(document.preview);
       if (previewPath) {
         const image = documentRef.createElement("img");
-        image.src = previewPath;
+        image.src = versionedAssetUrl(previewPath);
         image.alt = "";
         image.loading = "lazy";
         image.width = 560;
@@ -702,20 +732,20 @@
     const isPdf = (item.fileType || "").toLowerCase() === "pdf" || /\.pdf$/i.test(file);
     if (isPdf && file) {
       const frame = documentRef.createElement("iframe");
-      frame.src = file;
+      frame.src = versionedAssetUrl(file);
       frame.title = item.title ? "Aperçu du document : " + item.title : "Aperçu du document PDF";
       frame.loading = "eager";
       viewerCanvas.appendChild(frame);
     } else if (file && /\.(png|jpe?g|webp|avif|svg)$/i.test(file)) {
       const image = documentRef.createElement("img");
-      image.src = file;
+      image.src = versionedAssetUrl(file);
       image.alt = item.title ? "Document consulté : " + item.title : "Document consulté";
       image.className = "viewer-image";
       viewerCanvas.appendChild(image);
       viewerZoom.hidden = false;
     } else if (preview) {
       const image = documentRef.createElement("img");
-      image.src = preview;
+      image.src = versionedAssetUrl(preview);
       image.alt = item.title ? "Aperçu de démonstration : " + item.title : "Aperçu de démonstration du document";
       image.className = "viewer-image";
       viewerCanvas.appendChild(image);
@@ -725,7 +755,7 @@
     }
 
     if (file) {
-      viewerOriginal.href = file;
+      viewerOriginal.href = versionedAssetUrl(file);
       viewerOriginal.hidden = false;
     } else {
       viewerOriginal.hidden = true;
@@ -809,7 +839,7 @@
       console.error("Impossible de charger la vidéo du hero : " + source);
     }, { once: true });
     video.preload = "auto";
-    video.src = source;
+    video.src = versionedAssetUrl(source);
   }
 
   function initializeActiveNavigation() {
