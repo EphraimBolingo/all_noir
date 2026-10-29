@@ -131,7 +131,52 @@ window.DUALITY_CONTENT = {
       ]
     }
   ],
-  certificates: [],
+  certificates: [
+    {
+      id: "allcod-coursera-communication-strategies",
+      title: "Communication Strategies for a Virtual Age",
+      issuer: "University of Toronto · Coursera",
+      person: "allcod",
+      kind: "Certificat de cours",
+      date: "21 septembre 2024",
+      description: "Cours en ligne sans crédit autorisé par l’Université de Toronto et proposé par Coursera.",
+      preview: "assets/certificates/brevet_ephra1.webp",
+      file: "assets/certificates/brevet_ephra1.webp"
+    },
+    {
+      id: "allcod-coursera-generative-ai",
+      title: "Generative AI for Everyone",
+      issuer: "DeepLearning.AI · Coursera",
+      person: "allcod",
+      kind: "Certificat de cours",
+      date: "27 juillet 2024",
+      description: "Cours en ligne sans crédit autorisé par DeepLearning.AI et proposé par Coursera.",
+      preview: "assets/certificates/brevet_ephra2.webp",
+      file: "assets/certificates/brevet_ephra2.webp"
+    },
+    {
+      id: "allcod-coursera-ia-pour-tous",
+      title: "L’IA pour tous",
+      issuer: "DeepLearning.AI · Coursera",
+      person: "allcod",
+      kind: "Certificat de cours",
+      date: "10 juillet 2024",
+      description: "Cours en ligne sans crédit autorisé par DeepLearning.AI et proposé par Coursera.",
+      preview: "assets/certificates/brevet_ephra3.webp",
+      file: "assets/certificates/brevet_ephra3.webp"
+    },
+    {
+      id: "allcod-coursera-ai-chatbots",
+      title: "Building AI Powered Chatbots Without Programming",
+      issuer: "IBM · Coursera",
+      person: "allcod",
+      kind: "Certificat de cours",
+      date: "13 juillet 2024",
+      description: "Cours en ligne sans crédit autorisé par IBM et proposé par Coursera.",
+      preview: "assets/certificates/vrevet_ephra4.webp",
+      file: "assets/certificates/vrevet_ephra4.webp"
+    }
+  ],
   contact: {
     sharedPhone: "",
     allcod: { email: "", github: "", linkedin: "", website: "" },

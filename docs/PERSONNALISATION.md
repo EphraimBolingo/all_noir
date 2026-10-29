@@ -15,7 +15,7 @@ Les contenus éditoriaux sont regroupés dans `src/data/content.js`. Modifiez ce
 | Image de projet | `projects[].image` ou `collaborations[].image` | Chemin vers un SVG/JPG/PNG/WebP local | Les illustrations sont signalées comme démonstrations tant qu'aucune capture authentique n'est fournie |
 | Numéro partagé | `contact.sharedPhone` | Numéro international, sans espaces recommandés | « À renseigner » est affiché |
 | E-mail et profils | `contact.allcod` / `contact.veufnoir` | E-mail ou URL HTTPS complète | Le contact vide n'est pas transformé en lien |
-| Certificats et attestations | `certificates` | Tableau d'objets (voir ci-dessous) | La galerie affiche un état vide |
+| Certificats et attestations | `certificates` | Tableau d'objets (voir ci-dessous) | Quatre certificats Coursera d’All Cod sont déjà affichés |
 | Couleurs et animations | `src/css/styles.css` → variables `:root` et règles `@keyframes` | CSS | La palette actuelle est conservée |
 | Images d'illustration | `assets/images/` | SVG, PNG, JPG ou WebP | Utilisez les chemins d'image de démonstration existants |
 

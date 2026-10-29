@@ -19,7 +19,7 @@ Les captures fournies sont associées à Adesco, Hair Jordan et Somba Express ; 
 
 ## Documents de formation
 
-Aucun fichier de certificat ou d'attestation n'est fourni dans cette version. Ajoutez les documents authentiques Coursera et Orange Digital Center (et tout autre document utile) dans `assets/certificates/`, puis leurs métadonnées dans `certificates` de `src/data/content.js`. Le type, le titulaire, les dates et les liens de vérification doivent être vérifiés sur les documents originaux.
+Quatre certificats de cours Coursera authentiques d’Ephraïm sont fournis dans `assets/certificates/` et renseignés dans `certificates` de `src/data/content.js`. Ils concernent University of Toronto, DeepLearning.AI (deux certificats) et IBM. Les dates et intitulés ont été repris des documents. Aucun lien de vérification n’est ajouté ; les nouveaux documents peuvent être ajoutés avec leurs métadonnées après vérification de leur contenu.
 
 ## Coordonnées et liens
 

@@ -34,7 +34,7 @@ duality-portfolio/
 ├── index.html
 ├── README.md
 ├── assets/
-│   ├── certificates/       # Documents authentiques à ajouter
+│   ├── certificates/       # Certificats authentiques de Coursera
 │   ├── icons/              # Marque SVG locale
 │   ├── images/             # Illustrations techniques locales
 │   └── videos/             # Vidéo d'ambiance facultative pour le hero
@@ -50,12 +50,12 @@ duality-portfolio/
 
 Modifiez les informations regroupées dans `src/data/content.js`. Les biographies, portraits, compétences, tableaux de projets, coordonnées et la liste `certificates` y sont centralisés. Chaque fiche de profil dispose d'un emplacement photo configurable ; consultez le guide [`docs/PERSONNALISATION.md`](docs/PERSONNALISATION.md) et la [liste des contenus à remplacer](docs/CONTENUS-A-REMPLACER.md).
 
-Le portfolio présente trois projets individuels d’All Cod, deux projets individuels de VeufNoir et un projet commun, Net-Rapide. La carte Net-Rapide regroupe son site et sa plateforme de suivi des clients. Les filtres et le tri s’appuient sur ces données ; les visuels restent des illustrations de démonstration, pas des captures réelles. Les coordonnées laissées vides restent signalées comme à renseigner. La galerie des certificats est volontairement vide jusqu'à l'ajout de documents authentiques.
+Le portfolio présente trois projets individuels d’All Cod, deux projets individuels de VeufNoir et un projet commun, Net-Rapide. La carte Net-Rapide regroupe son site et sa plateforme de suivi des clients. Les filtres et le tri s’appuient sur ces données ; les visuels restent des illustrations de démonstration, pas des captures réelles. Les coordonnées laissées vides restent signalées comme à renseigner. La galerie comprend quatre certificats Coursera authentiques d’Ephraïm ; leurs titres, organismes et dates sont regroupés dans `src/data/content.js`.
 
 ## Limites et ressources externes
 
 - Aucun formulaire d'envoi n'est simulé : ajoutez de vraies coordonnées avant diffusion.
-- Les fichiers image ou PDF de certificat et leurs métadonnées doivent être ajoutés par l'utilisateur.
+- Les prochains certificats ou attestations devront être ajoutés avec leurs métadonnées dans `src/data/content.js`.
 - L'intégration d'un PDF dépend du navigateur ; un lien vers le fichier original est aussi proposé.
 - Les polices système sont utilisées, sans chargement distant.
 - La vidéo locale `assets/videos/hero.mp4` couvre toute la section hero ; le titre et les quatre accès rapides sont superposés à l’image. Dès le démarrage du JavaScript, sa source est assignée avec `preload="auto"` avant le rendu du reste du contenu ; cette assignation lance le chargement sans redémarrage manuel, et son poster reste visible pendant le chargement. Le chargement est ignoré lorsque la réduction des animations est demandée. La vidéo dure environ 10 secondes, mesure 1280 × 720 et pèse environ 5,5 Mo ; sa vitesse réelle dépend aussi de la connexion et de l’hébergement. Les panneaux de code et d’architecture réseau sont actuellement masqués. La vidéo est muette et en boucle.
