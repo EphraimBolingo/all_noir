@@ -246,7 +246,11 @@ button:focus-visible, a:focus-visible, select:focus-visible, iframe:focus-visibl
 .project-entry:nth-child(even) .demo-label { border-color: var(--orange-dim); color: var(--orange); }
 .project-title { margin: .45rem 0 .1rem; color: var(--white); font: 400 clamp(1.35rem, 2.5vw, 2.15rem)/1.08 var(--display); letter-spacing: .015em; }
 .project-description { margin: .35rem 0 .55rem; color: #a9bac2; font-size: .66rem; }
-.project-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .55rem; padding: .65rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.project-deliverables { display: grid; gap: .55rem; margin: .7rem 0; padding: .65rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); list-style: none; }
+.project-deliverables li { display: grid; gap: .15rem; }
+.project-deliverables h4 { margin: 0; color: #d3dee3; font-size: .62rem; font-weight: 500; }
+.project-deliverables p { margin: 0; color: #9aabb4; font-size: .59rem; line-height: 1.5; }
+.project-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: .55rem; padding: .65rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
 .project-fact { display: grid; grid-template-columns: auto 1fr; align-items: start; gap: .4rem; min-width: 0; color: #8fa0a9; }
 .project-fact-icon { color: #adbcc4; font-size: .9rem; line-height: 1.2; }
 .project-fact span:last-child { display: grid; font-size: .55rem; line-height: 1.55; }

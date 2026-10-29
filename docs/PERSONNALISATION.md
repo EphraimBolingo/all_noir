@@ -10,9 +10,9 @@ Les contenus éditoriaux sont regroupés dans `src/data/content.js`. Modifiez ce
 | Portraits | `profiles.allcod.portrait` / `profiles.veufnoir.portrait` | Chemin vers une photo locale dans `assets/images/` | `ephraim.webp` et `pedro.webp` sont associés aux profils correspondants |
 | Compétences visibles et formations | `profiles.<profil>.tags` / `education` | Tableaux de textes | La liste correspondante peut être vide |
 | Compétences détaillées | `profiles.<profil>.skills` | Tableau de textes | Informations éditoriales non rendues comme pastilles |
-| Projets individuels | `profiles.<profil>.projects` | Tableau d'objets | Les trois emplacements All Cod et les deux VeufNoir sont des exemples à remplacer |
-| Projets communs | `collaborations` | Tableau d'objets | Les deux emplacements communs sont des exemples à remplacer |
-| Image de projet | `projects[].image` ou `collaborations[].image` | Chemin vers un SVG/JPG/PNG/WebP local | L'illustration de démonstration correspondante est utilisée |
+| Projets individuels | `profiles.<profil>.projects` | Tableau d'objets | Trois projets All Cod et deux projets VeufNoir sont renseignés |
+| Projet commun | `collaborations` | Tableau d'objets | Net-Rapide regroupe son site et sa plateforme de suivi des clients |
+| Image de projet | `projects[].image` ou `collaborations[].image` | Chemin vers un SVG/JPG/PNG/WebP local | Les illustrations sont signalées comme démonstrations tant qu'aucune capture authentique n'est fournie |
 | Numéro partagé | `contact.sharedPhone` | Numéro international, sans espaces recommandés | « À renseigner » est affiché |
 | E-mail et profils | `contact.allcod` / `contact.veufnoir` | E-mail ou URL HTTPS complète | Le contact vide n'est pas transformé en lien |
 | Certificats et attestations | `certificates` | Tableau d'objets (voir ci-dessous) | La galerie affiche un état vide |
@@ -29,7 +29,7 @@ skills: ["Réseaux informatiques", "Administration réseau"]
 
 Les pastilles affichées sont définies par `tags` ; `skills` conserve une liste détaillée pour référence. Conservez la formulation exacte des qualifications documentées. Par exemple, « Formation CCNA 1, 2 et 3 suivie » ne signifie pas qu'une certification CCNA a été obtenue. Les établissements, dates et distinctions restent absents tant qu'ils ne sont pas vérifiés.
 
-Pour ajouter leurs portraits, placez les photos d'Ephraim et de Junior dans `assets/images/`, puis renseignez `portrait` dans `profiles.allcod` et `profiles.veufnoir` avec le chemin local correspondant, par exemple `assets/images/ephraim.webp`. Les formats JPG, PNG, WebP et AVIF sont acceptés. Les photos ne sont pas fournies dans le projet ; en attendant, les fiches affichent un emplacement explicite.
+Les portraits actuels se trouvent dans `assets/images/ephraim.webp` et `assets/images/pedro.webp`. Pour remplacer une photo, mettez à jour le fichier ou le champ `portrait` du profil correspondant. Les formats JPG, PNG, WebP et AVIF sont acceptés ; si une image configurée est absente, la fiche affiche un emplacement de remplacement.
 
 ## Ajouter ou remplacer un projet
 
@@ -47,16 +47,23 @@ Chaque objet de projet accepte les champs suivants :
   role: "Contribution confirmée",
   updated: "",
   technologies: ["HTML", "CSS"],
-  demoUrl: "",
+  demoUrl: "https://exemple.page.gd/",
   sourceUrl: ""
 }
 ```
 
 Pour les projets individuels, `category` vaut `allcod` ou `veufnoir` selon le tableau. Pour les projets communs, conservez `category: "collaborations"` et renseignez les rôles dans `roles.allcod` et `roles.veufnoir`. `role` et `updated` complètent les informations individuelles ; ne renseignez que des informations confirmées.
 
-Retirez les champs inconnus ou laissez-les vides. Pour un projet réel, remplacez `isDemo: true` par `isDemo: false` et remplacez l'illustration si vous en avez une authentique ; le filigrane de démonstration disparaît alors. `status` est facultatif. Les URL de démonstration et de code source ne s'affichent que lorsqu'elles sont renseignées. Les URL externes doivent être en HTTPS. Les illustrations par défaut sont des dessins abstraits et restent marquées comme démonstrations.
+Retirez les champs inconnus ou laissez-les vides. `isDemo` indique un emplacement de projet fictif ; `imageIsDemo` permet de signaler séparément une illustration de remplacement pour un projet réel. `status` est facultatif. Les technologies, contributions facultatives, dates et liens non renseignés ne sont pas affichés. Les URL de site et de code source ne s'affichent que lorsqu'elles sont renseignées ; les URL externes doivent être en HTTPS.
 
-Le nombre d'emplacements initial est de trois pour All Cod, deux pour VeufNoir et deux pour les projets communs. Vous pouvez ajouter des objets aux tableaux si de nouveaux projets réels sont communiqués.
+Le portfolio comprend actuellement trois projets All Cod, deux projets VeufNoir et un projet commun Net-Rapide. Pour présenter plusieurs livrables sous un seul projet commun, renseignez `deliverables` :
+
+```js
+deliverables: [
+  { title: "Site web", description: "Présentation du site." },
+  { title: "Plateforme client", description: "Suivi et gestion des clients." }
+]
+```
 
 Les projets communs peuvent en plus renseigner `status` et les rôles `roles.allcod` et `roles.veufnoir`. Ne complétez ces informations qu'à partir des contributions réelles.
 

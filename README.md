@@ -50,7 +50,7 @@ duality-portfolio/
 
 Modifiez les informations regroupées dans `src/data/content.js`. Les biographies, portraits, compétences, tableaux de projets, coordonnées et la liste `certificates` y sont centralisés. Chaque fiche de profil dispose d'un emplacement photo configurable ; consultez le guide [`docs/PERSONNALISATION.md`](docs/PERSONNALISATION.md) et la [liste des contenus à remplacer](docs/CONTENUS-A-REMPLACER.md).
 
-Les listes de démonstration contiennent trois emplacements All Cod, deux VeufNoir et deux projets communs. Les filtres et le tri du portfolio s'appuient sur ces données. Remplacez les emplacements et leurs illustrations par des informations réelles avant publication. Les coordonnées laissées vides restent signalées comme à renseigner. La galerie des certificats est volontairement vide jusqu'à l'ajout de documents authentiques.
+Le portfolio présente trois projets individuels d’All Cod, deux projets individuels de VeufNoir et un projet commun, Net-Rapide. La carte Net-Rapide regroupe son site et sa plateforme de suivi des clients. Les filtres et le tri s’appuient sur ces données ; les visuels restent des illustrations de démonstration, pas des captures réelles. Les coordonnées laissées vides restent signalées comme à renseigner. La galerie des certificats est volontairement vide jusqu'à l'ajout de documents authentiques.
 
 ## Limites et ressources externes
 
@@ -65,9 +65,9 @@ Les listes de démonstration contiennent trois emplacements All Cod, deux VeufNo
 ## Vérifications effectuées
 
 - Ouverture de `index.html` et exécution du JavaScript dans le navigateur intégré.
-- Filtres vérifiés : 2 projets communs, 3 All Cod, 2 VeufNoir et 7 au total ; tri par titre également vérifié.
+- Filtres vérifiés : 1 projet commun, 3 All Cod, 2 VeufNoir et 6 au total ; tri par titre également vérifié.
 - Le SVG d'architecture réseau s'affiche sans erreur ; le maillage abstrait du hero a été retiré.
-- Le paragraphe de présentation commune demandé a été retiré ; les deux fiches affichent un emplacement pour le portrait.
+- Le paragraphe de présentation commune demandé a été retiré ; les portraits fournis sont associés aux deux fiches.
 - Le code et l'architecture restent côte à côte dans deux panneaux de même largeur, y compris sur mobile ; le code et le schéma réseau ont des formats adaptés aux panneaux étroits.
 - La disposition côte à côte a été contrôlée à 320, 360, 390, 520, 768 et 1 440 px. Le bouton pour passer l'introduction fonctionne et `prefers-reduced-motion` affiche un état stable.
 - Sur mobile, la hauteur du hero suit son contenu au lieu de réserver artificiellement la hauteur de l'écran ; un schéma réseau vertical dédié limite les marges vides dans le panneau étroit.

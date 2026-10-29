@@ -17,9 +17,41 @@ window.DUALITY_CONTENT = {
         "Bases de données", "Git", "GitHub", "Docker", "Outils bureautiques"
       ],
       projects: [
-        { id: "allcod-01", title: "Projet individuel 01", description: "À remplacer par la description réelle.", image: "assets/images/code-project.svg", isDemo: true, category: "allcod", technologies: [], role: "", updated: "" },
-        { id: "allcod-02", title: "Projet individuel 02", description: "À remplacer par la description réelle.", image: "assets/images/code-project.svg", isDemo: true, category: "allcod", technologies: [], role: "", updated: "" },
-        { id: "allcod-03", title: "Projet individuel 03", description: "À remplacer par la description réelle.", image: "assets/images/code-project.svg", isDemo: true, category: "allcod", technologies: [], role: "", updated: "" }
+        {
+          id: "allcod-adhesion",
+          title: "Plateforme d’adhésion",
+          description: "Plateforme d’adhésion consultable en ligne.",
+          image: "assets/images/code-project.svg",
+          imageIsDemo: true,
+          isDemo: false,
+          category: "allcod",
+          status: "EN LIGNE",
+          role: "Réalisation de la plateforme d’adhésion",
+          technologies: [],
+          demoUrl: "https://adhesco-adhesion.page.gd/"
+        },
+        {
+          id: "allcod-jordan-hair",
+          title: "Jordan Hair",
+          description: "Site web réalisé pour le salon de coiffure Jordan Hair.",
+          image: "assets/images/code-project.svg",
+          imageIsDemo: true,
+          isDemo: false,
+          category: "allcod",
+          role: "Réalisation du site web",
+          technologies: []
+        },
+        {
+          id: "allcod-teka-express",
+          title: "Teka-Express",
+          description: "Site de commerce électronique Teka-Express.",
+          image: "assets/images/code-project.svg",
+          imageIsDemo: true,
+          isDemo: false,
+          category: "allcod",
+          role: "Réalisation du site de commerce électronique",
+          technologies: []
+        }
       ]
     },
     veufnoir: {
@@ -35,14 +67,54 @@ window.DUALITY_CONTENT = {
         "Télécommunications", "Formation CCNA 1, 2 et 3 suivie"
       ],
       projects: [
-        { id: "veufnoir-01", title: "Projet individuel 01", description: "À remplacer par la description réelle.", image: "assets/images/network-project.svg", isDemo: true, category: "veufnoir", technologies: [], role: "", updated: "" },
-        { id: "veufnoir-02", title: "Projet individuel 02", description: "À remplacer par la description réelle.", image: "assets/images/network-project.svg", isDemo: true, category: "veufnoir", technologies: [], role: "", updated: "" }
+        {
+          id: "veufnoir-uckim-laboratoire",
+          title: "Réseau et laboratoire intelligent — UCKIM",
+          description: "Création d’un réseau informatique et d’un laboratoire intelligent à l’Université UCKIM, à Kimpese.",
+          image: "assets/images/network-project.svg",
+          imageIsDemo: true,
+          isDemo: false,
+          category: "veufnoir",
+          role: "Création du réseau et du laboratoire intelligent",
+          technologies: []
+        },
+        {
+          id: "veufnoir-grand-hotel-ledya",
+          title: "Réseau et surveillance — Grand Hôtel Ledya",
+          description: "Réinstallation du réseau de communication, de l’accès Internet et du système de surveillance du Grand Hôtel Ledya, à Matadi.",
+          image: "assets/images/network-project.svg",
+          imageIsDemo: true,
+          isDemo: false,
+          category: "veufnoir",
+          role: "Réinstallation du réseau, d’Internet et du système de surveillance",
+          technologies: []
+        }
       ]
     }
   },
   collaborations: [
-    { id: "duo-01", title: "Projet commun 01", description: "À remplacer", image: "assets/images/code-project.svg", isDemo: true, category: "collaborations", technologies: [], roles: { allcod: "", veufnoir: "" }, updated: "" },
-    { id: "duo-02", title: "Projet commun 02", description: "À remplacer", image: "assets/images/network-project.svg", isDemo: true, category: "collaborations", technologies: [], roles: { allcod: "", veufnoir: "" }, updated: "" }
+    {
+      id: "net-rapide",
+      title: "Net-Rapide",
+      description: "Projet commun visant à fournir un accès à Internet à une communauté, à un coût abordable et avec une mise en service rapide.",
+      image: "assets/images/dual-system.svg",
+      imageIsDemo: true,
+      isDemo: false,
+      category: "collaborations",
+      status: "SITE WEB EN LIGNE",
+      technologies: [],
+      demoUrl: "https://net-rapide.page.gd/",
+      deliverables: [
+        {
+          title: "Site web Net-Rapide",
+          description: "Site web du projet commun."
+        },
+        {
+          title: "Plateforme de suivi des clients",
+          description: "Plateforme développée ensemble pour le suivi et la gestion des clients Net-Rapide."
+        }
+      ]
+    }
   ],
   certificates: [],
   contact: {

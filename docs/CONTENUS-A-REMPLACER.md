@@ -1,16 +1,21 @@
-# Contenus à remplacer avant publication
+# Projets communiqués et contenus restants
 
-Le site distingue les informations confirmées des éléments encore attendus. Les entrées marquées ci-dessous comme démonstration ne décrivent pas des réalisations réelles.
+Les titres et descriptions ci-dessous proviennent des informations communiquées par l’équipe. Les visuels des cartes restent des illustrations de démonstration et ne sont pas des captures des projets.
 
 ## Projets
 
-| Emplacement actuel | Quantité | À fournir |
-|---|---:|---|
-| Projets individuels All Cod | 3 | Titre, résumé factuel, visuel authentique, technologies, état, liens de démo et de code source lorsqu'ils existent |
-| Projets individuels VeufNoir | 2 | Titre, résumé factuel, visuel authentique, technologies, état, liens disponibles |
-| Projets collaboratifs All Cod × VeufNoir | 2 | Titre, description, visuel authentique, technologies, état, rôle de chacun et liens disponibles |
+| Réalisation | Responsable | Présentation |
+|---|---|---|
+| Plateforme d’adhésion | All Cod | Plateforme consultable en ligne |
+| Jordan Hair | All Cod | Site web pour un salon de coiffure |
+| Teka-Express | All Cod | Site de commerce électronique |
+| Réseau et laboratoire intelligent — UCKIM | VeufNoir | Réseau informatique et laboratoire intelligent à l’Université UCKIM, à Kimpese |
+| Réseau et surveillance — Grand Hôtel Ledya | VeufNoir | Réinstallation du réseau de communication, d’Internet et du système de surveillance à Matadi |
+| Net-Rapide | Projet commun | Accès Internet communautaire à coût abordable et mise en service rapide ; le site et la plateforme de suivi client sont regroupés sous ce projet |
 
-Modifiez les tableaux `profiles.allcod.projects`, `profiles.veufnoir.projects` et `collaborations` dans `src/data/content.js`. Remplacez `isDemo: true` par `isDemo: false` lorsque l'entrée représente désormais un projet réel. Ne renseignez que les contributions confirmées.
+Le site de la plateforme d’adhésion est [adhesco-adhesion.page.gd](https://adhesco-adhesion.page.gd/). Le site de Net-Rapide est [net-rapide.page.gd](https://net-rapide.page.gd/). L’URL de la plateforme de suivi client n’a pas été communiquée et n’est donc pas affichée.
+
+Les détails de technologie, les dates, les dépôts de code et les captures authentiques des projets ne sont pas encore fournis. Ils ne sont pas inventés ; les cartes utilisent des illustrations clairement signalées. Modifiez les tableaux `profiles.allcod.projects`, `profiles.veufnoir.projects` et `collaborations` dans `src/data/content.js` lorsque ces éléments seront disponibles.
 
 ## Documents de formation
 

@@ -89,7 +89,7 @@
     image.height = 360;
     image.loading = "lazy";
     visual.appendChild(image);
-    if (project.isDemo) {
+    if (project.imageIsDemo || project.isDemo) {
       visual.appendChild(createElement("span", "demo-watermark mono", "ILLUSTRATION DE DÉMONSTRATION"));
     }
     visual.appendChild(createElement("span", "project-number mono", String(index + 1).padStart(2, "0")));
@@ -98,7 +98,7 @@
     const meta = createElement("div", "project-meta");
     const isShared = category === "collaborations";
     meta.appendChild(createElement("span", "mono", isShared ? "PROJET COLLABORATIF" : "PROJET INDIVIDUEL"));
-    meta.appendChild(createElement("span", "demo-label", project.isDemo ? "EMPLACEMENT À REMPLACER" : project.status || "STATUT À RENSEIGNER"));
+    meta.appendChild(createElement("span", "demo-label", project.isDemo ? "EMPLACEMENT À REMPLACER" : project.status || "PROJET RÉALISÉ"));
     detail.appendChild(meta);
 
     const title = project.title && project.title.trim()
@@ -107,19 +107,31 @@
     detail.appendChild(createElement("h3", "project-title", title));
     detail.appendChild(createElement("p", "project-description", project.description || "Description à renseigner."));
 
+    if (Array.isArray(project.deliverables) && project.deliverables.length) {
+      const deliverables = createElement("ul", "project-deliverables");
+      project.deliverables.forEach(function (item) {
+        const entry = createElement("li");
+        entry.appendChild(createElement("h4", "", item.title));
+        entry.appendChild(createElement("p", "", item.description));
+        deliverables.appendChild(entry);
+      });
+      detail.appendChild(deliverables);
+    }
+
     const facts = createElement("div", "project-facts");
     const factEntries = isShared
       ? [
-          ["RÔLE · ALL COD", project.roles && project.roles.allcod || "À préciser"],
-          ["RÔLE · VEUFNOIR", project.roles && project.roles.veufnoir || "À préciser"],
-          ["DATE", project.updated || "À renseigner"]
+            ["RÔLE · ALL COD", project.roles && project.roles.allcod || ""],
+            ["RÔLE · VEUFNOIR", project.roles && project.roles.veufnoir || ""],
+            ["DATE", project.updated || ""]
         ]
       : [
           ["AUTEUR", category === "allcod" ? content.profiles.allcod.alias : content.profiles.veufnoir.alias],
-          ["CONTRIBUTION", project.role || "À préciser"],
-          ["DATE", project.updated || "À renseigner"]
+            ["CONTRIBUTION", project.role || ""],
+            ["DATE", project.updated || ""]
         ];
     factEntries.forEach(function (entry) {
+      if (!entry[1]) return;
       const fact = createElement("div", "project-fact");
       fact.appendChild(createElement("span", "project-fact-icon", "＋"));
       const copy = createElement("span");
@@ -128,26 +140,28 @@
       fact.appendChild(copy);
       facts.appendChild(fact);
     });
-    detail.appendChild(facts);
+    if (facts.childElementCount) detail.appendChild(facts);
 
     const footer = createElement("div", "project-footer");
+    let hasFooterContent = false;
     if (Array.isArray(project.technologies) && project.technologies.length) {
       const technologies = createElement("ul", "project-technologies");
       project.technologies.forEach(function (technology) {
         technologies.appendChild(createElement("li", "", technology));
       });
       footer.appendChild(technologies);
-    } else {
-      footer.appendChild(createElement("span", "mono project-tech-empty", "Technologies à renseigner"));
+      hasFooterContent = true;
     }
     const links = createElement("div", "project-links");
-    const demoLink = createSafeLink(project.demoUrl, "Démo ↗", "project-link");
+    const demoLink = createSafeLink(project.demoUrl, "Visiter le site ↗", "project-link");
     const sourceLink = createSafeLink(project.sourceUrl, "Code source ↗", "project-link");
     if (demoLink) links.appendChild(demoLink);
     if (sourceLink) links.appendChild(sourceLink);
-    if (!demoLink && !sourceLink) links.appendChild(createElement("span", "mono project-link-empty", "Liens à renseigner"));
-    footer.appendChild(links);
-    detail.appendChild(footer);
+    if (demoLink || sourceLink) {
+      footer.appendChild(links);
+      hasFooterContent = true;
+    }
+    if (hasFooterContent) detail.appendChild(footer);
     article.append(visual, detail);
     return article;
   }
