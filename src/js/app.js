@@ -554,29 +554,156 @@
   function renderContacts() {
     const target = documentRef.getElementById("contact-list");
     if (!target) return;
-    const entries = [
-      { label: "TÉLÉPHONE PARTAGÉ", value: content.contact.sharedPhone, protocol: "tel:" },
-      { label: "ALL COD / E-MAIL", value: content.contact.allcod.email, protocol: "mailto:" },
-      { label: "ALL COD / GITHUB", value: content.contact.allcod.github },
-      { label: "ALL COD / LINKEDIN", value: content.contact.allcod.linkedin },
-      { label: "ALL COD / SITE", value: content.contact.allcod.website },
-      { label: "VEUFNOIR / E-MAIL", value: content.contact.veufnoir.email, protocol: "mailto:" },
-      { label: "VEUFNOIR / GITHUB", value: content.contact.veufnoir.github },
-      { label: "VEUFNOIR / LINKEDIN", value: content.contact.veufnoir.linkedin },
-      { label: "VEUFNOIR / SITE", value: content.contact.veufnoir.website }
-    ];
-    target.replaceChildren();
-    entries.forEach(function (entry) {
-      const row = createElement("div", "contact-row");
-      row.appendChild(createElement("span", "mono", entry.label));
-      if (!entry.value) {
-        row.appendChild(createElement("span", "contact-value", "À renseigner"));
-      } else {
-        const href = entry.protocol ? entry.protocol + entry.value : entry.value;
-        const link = createSafeLink(href, entry.value, "contact-value");
-        row.appendChild(link || createElement("span", "contact-value", entry.value));
+    const iconDefinitions = {
+      facebook: {
+        viewBox: "0 0 24 24",
+        paths: [
+          { d: "M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5h1.7V3.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V10H7.3v3h2.8v8z", fill: "#1877F2" }
+        ]
+      },
+      whatsapp: {
+        viewBox: "0 0 24 24",
+        paths: [
+          { d: "M12 2a9.8 9.8 0 0 0-8.4 14.9L2.3 22l5.2-1.4A9.8 9.8 0 1 0 12 2Z", fill: "#25D366" },
+          { d: "M8.2 6.7c-.2-.4-.4-.4-.7-.4H7c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.2 4.8 4.4.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4l-1.9-.9c-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.8-1.9Z", fill: "#fff" }
+        ]
+      },
+      instagram: {
+        viewBox: "0 0 24 24",
+        paths: [
+          { d: "M7.2 2h9.6A5.2 5.2 0 0 1 22 7.2v9.6a5.2 5.2 0 0 1-5.2 5.2H7.2A5.2 5.2 0 0 1 2 16.8V7.2A5.2 5.2 0 0 1 7.2 2Zm0 2A3.2 3.2 0 0 0 4 7.2v9.6A3.2 3.2 0 0 0 7.2 20h9.6a3.2 3.2 0 0 0 3.2-3.2V7.2A3.2 3.2 0 0 0 16.8 4z", fill: "#E1306C" },
+          { d: "M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm5.3-3.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4Z", fill: "#E1306C" }
+        ]
+      },
+      email: {
+        viewBox: "0 0 24 24",
+        paths: [
+          { d: "M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm0 2v.3l9 6.2 9-6.2V7zm18 10V9.7l-8.4 5.8a1 1 0 0 1-1.2 0L3 9.7V17z", fill: "#EA4335" }
+        ]
+      },
+      linkedin: {
+        viewBox: "0 0 24 24",
+        paths: [
+          { d: "M3 2h18a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm3.1 7.1H3.5V19h2.6zM4.8 4.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm11.7 4.3c-1.5 0-2.5.8-2.9 1.5h-.1V9.2h-2.5V19h2.6v-4.8c0-1.3.2-2.6 1.9-2.6s1.7 1.5 1.7 2.7V19h2.6v-5.3c0-2.6-.6-4.9-3.3-4.9Z", fill: "#0A66C2" },
+          { d: "M5.2 9.1h2.6V19H5.2zM6.5 4.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM10.4 9.1h2.5v1.4h.1c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.7 2 3.7 4.7V19H17v-4.8c0-1.2 0-2.7-1.7-2.7s-1.9 1.3-1.9 2.6V19h-2.6V9.1Z", fill: "#fff" }
+        ]
+      },
+      github: {
+        viewBox: "0 0 24 24",
+        paths: [
+          { d: "M12 .8a11.2 11.2 0 0 0-3.5 21.8c.6.1.8-.3.8-.6v-2.1c-3.1.7-3.8-1.3-3.8-1.3-.5-1.3-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1.8 2.4 3.2 1.7.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.3-5.1-5.5 0-1.2.4-2.2 1.2-3-.1-.3-.5-1.4.1-2.9 0 0 1-.3 3.1 1.2a10.7 10.7 0 0 1 5.7 0c2.1-1.5 3.1-1.2 3.1-1.2.6 1.5.2 2.6.1 2.9.8.8 1.2 1.8 1.2 3 0 4.2-2.6 5.2-5.1 5.5.4.3.8 1 .8 2v3c0 .3.2.7.8.6A11.2 11.2 0 0 0 12 .8Z", fill: "#fff" }
+        ]
       }
-      target.appendChild(row);
+    };
+
+    const profiles = [
+      {
+        id: "allcod",
+        profile: content.profiles.allcod,
+        accent: "cyan",
+        channels: [
+          { key: "facebook", label: "Facebook" },
+          { key: "whatsapp", label: "WhatsApp" },
+          { key: "instagram", label: "Instagram" },
+          { key: "email", label: "E-mail" },
+          { key: "linkedin", label: "LinkedIn" },
+          { key: "github", label: "GitHub" }
+        ]
+      },
+      {
+        id: "veufnoir",
+        profile: content.profiles.veufnoir,
+        accent: "orange",
+        channels: [
+          { key: "facebook", label: "Facebook" },
+          { key: "whatsapp", label: "WhatsApp" },
+          { key: "instagram", label: "Instagram" },
+          { key: "email", label: "E-mail" },
+          { key: "linkedin", label: "LinkedIn" },
+          { key: "github", label: "GitHub" }
+        ]
+      }
+    ];
+
+    function contactHref(channel, value) {
+      if (typeof value !== "string" || !value.trim()) return "";
+      const trimmed = value.trim();
+      if (channel === "email") {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed) ? "mailto:" + trimmed : "";
+      }
+      if (channel === "whatsapp" && /^[+\d\s().-]+$/.test(trimmed)) {
+        const phone = trimmed.replace(/\D/g, "");
+        return phone.length >= 8 && phone.length <= 15 ? "https://wa.me/" + phone : "";
+      }
+
+      let url;
+      try {
+        url = new URL(trimmed);
+      } catch (error) {
+        return "";
+      }
+      if (url.protocol !== "https:") return "";
+      const host = url.hostname.toLowerCase().replace(/^www\./, "");
+      const allowedHosts = {
+        facebook: ["facebook.com", "m.facebook.com", "fb.me"],
+        whatsapp: ["wa.me", "api.whatsapp.com"],
+        instagram: ["instagram.com"],
+        linkedin: ["linkedin.com"],
+        github: ["github.com"]
+      };
+      return allowedHosts[channel].indexOf(host) !== -1 ? url.href : "";
+    }
+
+    target.replaceChildren();
+    profiles.forEach(function (entry) {
+      const panel = createElement("article", "contact-person contact-person-" + entry.accent);
+      const heading = createElement("div", "contact-person-heading");
+      heading.appendChild(createElement("span", "mono", entry.profile.alias));
+      heading.appendChild(createElement("h3", "", entry.profile.name));
+      heading.appendChild(createElement("p", "", entry.profile.specialty));
+
+      const links = createElement("nav", "contact-socials");
+      links.setAttribute("aria-label", "Réseaux et contacts de " + entry.profile.alias);
+      let linkCount = 0;
+      const contactDetails = content.contact[entry.id] || {};
+      const isPreview = contactDetails.previewOnly === true;
+      entry.channels.forEach(function (channel) {
+        const value = contactDetails[channel.key];
+        if (!value) return;
+        const href = isPreview ? "" : contactHref(channel.key, value);
+        const control = isPreview
+          ? createElement("span", "contact-social contact-social-preview contact-social-" + channel.key)
+          : createSafeLink(href, "", "contact-social contact-social-" + channel.key);
+        if (!control) {
+          console.error("Lien " + channel.label + " invalide pour " + entry.profile.name + ".");
+          return;
+        }
+
+        const definition = iconDefinitions[channel.key];
+        const icon = documentRef.createElementNS("http://www.w3.org/2000/svg", "svg");
+        icon.setAttribute("viewBox", definition.viewBox);
+        icon.setAttribute("aria-hidden", "true");
+        icon.setAttribute("focusable", "false");
+        definition.paths.forEach(function (path) {
+          const shape = documentRef.createElementNS("http://www.w3.org/2000/svg", "path");
+          Object.keys(path).forEach(function (attribute) {
+            shape.setAttribute(attribute, path[attribute]);
+          });
+          icon.appendChild(shape);
+        });
+        control.setAttribute("aria-label", (isPreview ? "Exemple non cliquable : " : "") + channel.label + " de " + entry.profile.name);
+        control.title = isPreview ? channel.label + " — exemple visuel" : channel.label;
+        if (isPreview) control.setAttribute("role", "img");
+        control.appendChild(icon);
+        links.appendChild(control);
+        linkCount += 1;
+      });
+
+      if (!linkCount) {
+        links.appendChild(createElement("span", "contact-empty", "Coordonnées à ajouter"));
+      }
+      panel.append(heading, links);
+      target.appendChild(panel);
     });
   }
 

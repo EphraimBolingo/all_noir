@@ -219,8 +219,23 @@ window.DUALITY_CONTENT = {
     }
   ],
   contact: {
-    sharedPhone: "",
-    allcod: { email: "", github: "", linkedin: "", website: "" },
-    veufnoir: { email: "", github: "", linkedin: "", website: "" }
+    allcod: {
+      previewOnly: true,
+      facebook: "https://facebook.com/exemple-allcod",
+      whatsapp: "+1 202 555 0147",
+      instagram: "https://instagram.com/exemple.allcod",
+      email: "ephraim@example.invalid",
+      linkedin: "https://linkedin.com/in/exemple-allcod",
+      github: "https://github.com/exemple-allcod"
+    },
+    veufnoir: {
+      previewOnly: true,
+      facebook: "https://facebook.com/exemple-veufnoir",
+      whatsapp: "+1 202 555 0148",
+      instagram: "https://instagram.com/exemple.veufnoir",
+      email: "pedro@example.invalid",
+      linkedin: "https://linkedin.com/in/exemple-veufnoir",
+      github: "https://github.com/exemple-veufnoir"
+    }
   }
 };

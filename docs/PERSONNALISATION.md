@@ -13,8 +13,8 @@ Les contenus éditoriaux sont regroupés dans `src/data/content.js`. Modifiez ce
 | Projets individuels | `profiles.<profil>.projects` | Tableau d'objets | Trois projets All Cod et deux projets VeufNoir sont renseignés |
 | Projet commun | `collaborations` | Tableau d'objets | Net-Rapide regroupe son site et sa plateforme de suivi des clients |
 | Image de projet | `projects[].image` ou `collaborations[].image` | Chemin vers un SVG/JPG/PNG/WebP local | Les illustrations sont signalées comme démonstrations tant qu'aucune capture authentique n'est fournie |
-| Numéro partagé | `contact.sharedPhone` | Numéro international, sans espaces recommandés | « À renseigner » est affiché |
-| E-mail et profils | `contact.allcod` / `contact.veufnoir` | E-mail ou URL HTTPS complète | Le contact vide n'est pas transformé en lien |
+| Contacts d'All Cod | `contact.allcod` | Facebook, WhatsApp, Instagram, e-mail, LinkedIn et GitHub | Des exemples fictifs non cliquables sont actuellement affichés |
+| Contacts de VeufNoir | `contact.veufnoir` | Facebook, WhatsApp, Instagram, e-mail, LinkedIn et GitHub | Des exemples fictifs non cliquables sont actuellement affichés |
 | Certificats et attestations | `certificates` | Tableau d'objets (voir ci-dessous) | Le carrousel est filtrable par organisme de formation |
 | Couleurs et animations | `src/css/styles.css` → variables `:root` et règles `@keyframes` | CSS | La palette actuelle est conservée |
 | Images d'illustration | `assets/images/` | SVG, PNG, JPG ou WebP | Utilisez les chemins d'image de démonstration existants |
@@ -108,7 +108,7 @@ Pour retirer ou remplacer un document, supprimez ou modifiez son objet dans `cer
 
 ## Modifier les coordonnées
 
-Renseignez `contact.sharedPhone`, puis les champs `email`, `github`, `linkedin` et `website` sous chaque profil de contact dans `src/data/content.js`. Les adresses e-mail deviennent des liens `mailto:` ; les liens sociaux et sites externes doivent être des URL HTTPS. Aucun formulaire d'envoi n'est inclus.
+Les exemples actuellement renseignés dans `contact` de `src/data/content.js` servent uniquement à prévisualiser les icônes : `previewOnly: true` les rend non cliquables. Chaque profil comporte Facebook, WhatsApp, Instagram, e-mail, LinkedIn et GitHub. Remplacez-les par les coordonnées réelles, puis supprimez `previewOnly` pour activer les liens. Les icônes SVG utilisent les formes et couleurs reconnaissables des marques. Les URL sociales doivent être en HTTPS et appartenir au domaine de la plateforme correspondante. WhatsApp accepte un numéro international ou une URL `https://wa.me/`. L’e-mail devient un lien `mailto:`. Les icônes ont un nom accessible aux lecteurs d’écran ; aucun libellé social n’est affiché. Les canaux vides restent masqués. Aucun formulaire d'envoi n'est inclus.
 
 ## Remplacer les illustrations
 

@@ -23,7 +23,7 @@ Quatre certificats de cours Coursera authentiques d’Ephraïm sont fournis dans
 
 ## Coordonnées et liens
 
-Les coordonnées ne sont pas encore fournies. Complétez `contact.sharedPhone`, `contact.allcod` et `contact.veufnoir` dans `src/data/content.js` avec le numéro partagé, les adresses e-mail, profils sociaux et liens professionnels réels.
+Les icônes de contact affichent actuellement des exemples fictifs non cliquables (`previewOnly: true`) afin de prévisualiser la section. Les deux profils affichent Facebook, WhatsApp, Instagram, e-mail, LinkedIn et GitHub. Remplacez ces exemples par les coordonnées réelles dans `contact` de `src/data/content.js`, puis supprimez `previewOnly` pour activer les liens.
 
 ## Visuels
 
