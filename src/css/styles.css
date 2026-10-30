@@ -441,6 +441,9 @@ button:focus-visible, a:focus-visible, select:focus-visible, iframe:focus-visibl
   .profile-copy > p:not(.education-line) { font-size: .58rem; }
   .profile-tags { gap: .25rem; }
   .profile-tags li { font-size: .49rem; }
+  .profile-tools { gap: .25rem; }
+  .profile-tool { width: 32px; height: 32px; }
+  .profile-tool svg { width: 22px; height: 22px; }
   .profile-art-network { min-height: 160px; }
   .complementarity { margin-top: 1.25rem; }
   .complementarity-body { grid-template-columns: 1fr; gap: .8rem; padding-top: .8rem; }
